@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4934859106588662}
   - component: {fileID: 114408584903602028}
   - component: {fileID: 135510690409716596}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Simple Boots Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4760559395681854}
   - component: {fileID: 33754573731983428}
   - component: {fileID: 23247618402583314}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Simple Boots Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -7,7 +7,9 @@ using UnityEngine.AI;
 public class PlayerMovement : MonoBehaviour
 {
     Transform target;
-    NavMeshAgent agent;
+
+    [HideInInspector]
+    public NavMeshAgent agent;
 
     private void Start()
     {

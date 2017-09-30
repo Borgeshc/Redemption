@@ -5,7 +5,8 @@ public class CharacterStats : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth { get; private set; }
 
-    public Stat damage;
+    public Stat basicAttackDamage;
+    public Stat secondaryAttackDamage;
     public Stat armor;
 
     public GameObject hitEffect;

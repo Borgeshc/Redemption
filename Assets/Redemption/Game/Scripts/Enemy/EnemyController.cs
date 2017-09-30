@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
                 CharacterStats targetStats = target.GetComponent<CharacterStats>();
 
                 if(targetStats != null)
-                    combat.Attack(targetStats);
+                    combat.BasicAttack(targetStats);
 
                 FaceTarget();
             }

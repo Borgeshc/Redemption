@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4598620230889180}
   - component: {fileID: 114374870766925640}
   - component: {fileID: 135816677785311098}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Simple Armor Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4288629659781156}
   - component: {fileID: 23148179570316152}
   - component: {fileID: 33783684402885150}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Simple Armor Item
   m_TagString: Untagged
   m_Icon: {fileID: 0}

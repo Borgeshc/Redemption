@@ -5,7 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public LayerMask movementMask;
+    public LayerMask interactable;
     public Interactable focus;
+
+    public static bool basicAttack;
+    public static bool secondaryAttack;
 
     Camera cam;
     PlayerMovement movement;
@@ -21,31 +25,38 @@ public class PlayerController : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject()) //If you are currently hovering over UI
             return;
 
-        if(Input.GetMouseButton(0))
+        basicAttack = Input.GetMouseButton(0);
+        secondaryAttack = Input.GetMouseButton(1);
+
+        bool stopWalking = Input.GetKey(KeyCode.LeftShift);
+
+        if (secondaryAttack || basicAttack)
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if(Physics.Raycast(ray, out hit, 100, movementMask))
+            if (Physics.Raycast(ray, out hit, 100, interactable))
             {
-                movement.MoveToPoint(hit.point);
-                RemoveFocus();
-            }
-        }
+                if(!stopWalking)
+                    movement.MoveToPoint(hit.point);
 
-        if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
-        {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, 100))
-            {
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
-                if(interactable != null)
+                if (interactable != null)
                 {
                     SetFocus(interactable);
                 }
             }
+            else if (Physics.Raycast(ray, out hit, 100, movementMask))
+            {
+                if (!stopWalking)
+                    movement.MoveToPoint(hit.point);
+
+                RemoveFocus();
+            }
+        }
+        else if(stopWalking)
+        {
+            movement.agent.SetDestination(transform.position);
         }
     }
     

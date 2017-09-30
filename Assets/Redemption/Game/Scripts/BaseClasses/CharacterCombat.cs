@@ -24,13 +24,24 @@ public class CharacterCombat : MonoBehaviour
         attackCooldown -= Time.deltaTime;
     }
 
-    public void Attack(CharacterStats targetStats)
+    public void BasicAttack(CharacterStats targetStats)
     {
         if(attackCooldown <= 0f)
         {
             StartCoroutine(DoDamage(targetStats, attackDelay));
-            characterAnimator.Attacking();
-            print("Attack");
+            characterAnimator.BasicAttack();
+            print("BasicAttack");
+            attackCooldown = 1f / attackSpeed;
+        }
+    }
+
+    public void SecondaryAttack(CharacterStats targetStats)
+    {
+        if (attackCooldown <= 0f)
+        {
+            StartCoroutine(DoDamage(targetStats, attackDelay));
+            characterAnimator.SecondaryAttack();
+            print("SecondaryAttack");
             attackCooldown = 1f / attackSpeed;
         }
     }
@@ -38,6 +49,10 @@ public class CharacterCombat : MonoBehaviour
     IEnumerator DoDamage(CharacterStats stats, float delay)
     {
         yield return new WaitForSeconds(delay);
-        stats.TakeDamage(myStats.damage.GetValue());
+
+        if (PlayerController.basicAttack)
+            stats.TakeDamage(myStats.basicAttackDamage.GetValue());
+        else if (PlayerController.secondaryAttack)
+            stats.TakeDamage(myStats.secondaryAttackDamage.GetValue());
     }
 }
