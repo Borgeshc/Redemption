@@ -50,7 +50,7 @@ public class TopDownFollow : MonoBehaviour
 		//if (CombatManager.inCombat) {
 		//	doRotate = false;
 		//} else
-			doRotate = true;
+			//doRotate = true;
 
 		if( doZoom ){
 			// Record our mouse input.  If we zoom add this to our height and distance.
@@ -83,7 +83,7 @@ public class TopDownFollow : MonoBehaviour
 
 		// Set the camera position reference.
 		targetAdjustedPosition = rotationResult * zoomResult;
-		transform.position = target.position + targetAdjustedPosition;
+		transform.position = Vector3.Lerp(transform.position, target.position + targetAdjustedPosition, 1 * Time.deltaTime);
 
 		// Face the desired position.
 		transform.LookAt(target);

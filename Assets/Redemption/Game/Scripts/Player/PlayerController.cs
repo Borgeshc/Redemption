@@ -8,6 +8,9 @@ public class PlayerController : MonoBehaviour
     public LayerMask interactable;
     public Interactable focus;
 
+    public Texture2D mainCursor;
+    public Texture2D attackCursor;
+
     public static bool basicAttack;
     public static bool secondaryAttack;
 
@@ -18,6 +21,7 @@ public class PlayerController : MonoBehaviour
     {
         cam = Camera.main;
         movement = GetComponent<PlayerMovement>();
+        Cursor.SetCursor(mainCursor, new Vector2(mainCursor.width / 2, mainCursor.height / 2), CursorMode.Auto);
     }
 
     private void Update()
@@ -30,14 +34,14 @@ public class PlayerController : MonoBehaviour
 
         bool stopWalking = Input.GetKey(KeyCode.LeftShift);
 
-        if (secondaryAttack || basicAttack)
-        {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 100, interactable))
+        if (Physics.Raycast(ray, out hit, 100, interactable))
+        {
+            if (secondaryAttack || basicAttack)
             {
-                if(!stopWalking)
+                if (!stopWalking)
                     movement.MoveToPoint(hit.point);
 
                 Interactable interactable = hit.collider.GetComponent<Interactable>();
@@ -46,15 +50,21 @@ public class PlayerController : MonoBehaviour
                     SetFocus(interactable);
                 }
             }
-            else if (Physics.Raycast(ray, out hit, 100, movementMask))
+            Cursor.SetCursor(attackCursor, new Vector2(attackCursor.width / 2, attackCursor.height / 2), CursorMode.Auto);
+        }
+        else if (Physics.Raycast(ray, out hit, 100, movementMask))
+        {
+            if (secondaryAttack || basicAttack)
             {
                 if (!stopWalking)
                     movement.MoveToPoint(hit.point);
 
                 RemoveFocus();
             }
+            Cursor.SetCursor(mainCursor, new Vector2(mainCursor.width / 2, mainCursor.height / 2), CursorMode.Auto);
         }
-        else if(stopWalking)
+
+        if (stopWalking)
         {
             movement.agent.SetDestination(transform.position);
         }

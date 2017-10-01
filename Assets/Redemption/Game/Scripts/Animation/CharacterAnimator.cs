@@ -20,6 +20,11 @@ public class CharacterAnimator : MonoBehaviour
     {
         float speed = agent.velocity.magnitude / agent.speed;
         anim.SetFloat("Speed", speed, movementSmoothTime, Time.deltaTime);
+
+        if(agent.velocity.magnitude == 0)
+            anim.SetBool("IsIdle", true);
+        else
+            anim.SetBool("IsIdle", false);
     }
 
     public void BasicAttack()

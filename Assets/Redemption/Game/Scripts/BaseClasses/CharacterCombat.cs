@@ -5,9 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterStats))]
 public class CharacterCombat : MonoBehaviour
 {
-    public float attackSpeed = 1f;
+    public float attackFrequency = 1f;
 
-    private float attackCooldown = 0f;
+    private bool attacking;
 
     CharacterStats enemyStats;
 
@@ -20,35 +20,41 @@ public class CharacterCombat : MonoBehaviour
         characterAnimator = GetComponent<CharacterAnimator>();
     }
 
-    private void Update()
-    {
-        attackCooldown -= Time.deltaTime;
-    }
-
     public void BasicAttack(CharacterStats targetStats)
     {
-        if(attackCooldown <= 0f)
+        if(!attacking)
         {
+            attacking = true;
             enemyStats = targetStats;
             characterAnimator.BasicAttack();
             print("BasicAttack");
-            attackCooldown = 1f / attackSpeed;
+            DoDamage();
+            StartCoroutine(GlobalCooldown());
         }
     }
 
     public void SecondaryAttack(CharacterStats targetStats)
     {
-        if (attackCooldown <= 0f)
+        if (!attacking)
         {
+            attacking = true;
             enemyStats = targetStats;
             characterAnimator.SecondaryAttack();
             print("SecondaryAttack");
-            attackCooldown = 1f / attackSpeed;
+            DoDamage();
+            StartCoroutine(GlobalCooldown());
         }
     }
 
-    public void DoDamage()
+    IEnumerator GlobalCooldown()
     {
+        yield return new WaitForSeconds(attackFrequency);
+        attacking = false;
+    }
+
+    void DoDamage()
+    {
+        print("Do Damage");
         if (PlayerController.basicAttack)
             enemyStats.TakeDamage(myStats.basicAttackDamage.GetValue());
         else if (PlayerController.secondaryAttack)

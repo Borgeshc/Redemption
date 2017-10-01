@@ -4,6 +4,7 @@ public class Interactable : MonoBehaviour
 {
     public float radius = 3f;
     public Transform interactionTransform;
+    public GameObject focusGraphic;
 
     Transform player;
 
@@ -33,6 +34,9 @@ public class Interactable : MonoBehaviour
         isFocus = true;
         player = playerTransform;
         hasInteracted = false;
+
+        if (focusGraphic != null)
+            focusGraphic.SetActive(true);
     }
 
     public void OnDefocused()
@@ -40,6 +44,9 @@ public class Interactable : MonoBehaviour
         isFocus = false;
         player = null;
         hasInteracted = false;
+
+        if (focusGraphic != null)
+            focusGraphic.SetActive(false);
     }
 
     private void OnDrawGizmosSelected()

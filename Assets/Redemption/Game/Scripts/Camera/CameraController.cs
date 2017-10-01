@@ -28,7 +28,7 @@ public class CameraController : MonoBehaviour
 
     private void LateUpdate()
     {
-        transform.position = target.position - offset * currentZoom;
+        transform.position = Vector3.Lerp(transform.position, target.position - offset * currentZoom, 1 * Time.deltaTime);
         transform.LookAt(target.position + Vector3.up * pitch);
 
         transform.RotateAround(target.position, Vector3.up, currentYaw);
