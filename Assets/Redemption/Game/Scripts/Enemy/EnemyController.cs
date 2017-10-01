@@ -8,19 +8,21 @@ public class EnemyController : MonoBehaviour
     Transform target;
     NavMeshAgent agent;
     CharacterCombat combat;
+    EnemyStats health;
     
 	void Start ()
     {
         agent = GetComponent<NavMeshAgent>();
         target = PlayerManager.instance.player.transform;
         combat = GetComponent<CharacterCombat>();
+        health = GetComponent<EnemyStats>();
 	}
 	
 	void Update ()
     {
         float distance = Vector3.Distance(target.position, transform.position);
 
-        if(distance <= lookRadius)
+        if(distance <= lookRadius && !health.isDead)
         {
             agent.SetDestination(target.position);
 

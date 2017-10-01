@@ -6,9 +6,10 @@ using UnityEngine;
 public class CharacterCombat : MonoBehaviour
 {
     public float attackSpeed = 1f;
-    public float attackDelay = .6f;
 
     private float attackCooldown = 0f;
+
+    CharacterStats enemyStats;
 
     CharacterStats myStats;
     CharacterAnimator characterAnimator;
@@ -28,7 +29,7 @@ public class CharacterCombat : MonoBehaviour
     {
         if(attackCooldown <= 0f)
         {
-            StartCoroutine(DoDamage(targetStats, attackDelay));
+            enemyStats = targetStats;
             characterAnimator.BasicAttack();
             print("BasicAttack");
             attackCooldown = 1f / attackSpeed;
@@ -39,20 +40,18 @@ public class CharacterCombat : MonoBehaviour
     {
         if (attackCooldown <= 0f)
         {
-            StartCoroutine(DoDamage(targetStats, attackDelay));
+            enemyStats = targetStats;
             characterAnimator.SecondaryAttack();
             print("SecondaryAttack");
             attackCooldown = 1f / attackSpeed;
         }
     }
 
-    IEnumerator DoDamage(CharacterStats stats, float delay)
+    public void DoDamage()
     {
-        yield return new WaitForSeconds(delay);
-
         if (PlayerController.basicAttack)
-            stats.TakeDamage(myStats.basicAttackDamage.GetValue());
+            enemyStats.TakeDamage(myStats.basicAttackDamage.GetValue());
         else if (PlayerController.secondaryAttack)
-            stats.TakeDamage(myStats.secondaryAttackDamage.GetValue());
+            enemyStats.TakeDamage(myStats.secondaryAttackDamage.GetValue());
     }
 }

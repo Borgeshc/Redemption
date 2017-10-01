@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class EnemyStats : CharacterStats
 {
+    [HideInInspector]
+    public bool isDead;
     Animator anim;
-    bool despawning;
 
     private void Start()
     {
@@ -14,20 +15,8 @@ public class EnemyStats : CharacterStats
 
     public override void Die()
     {
-        print("Died");
-        base.Die();
         anim.SetBool("Died", true);
-
-        if(!despawning)
-        {
-            despawning = true;
-            StartCoroutine(Despawn());
-        }
-    }
-
-    IEnumerator Despawn()
-    {
-        yield return new WaitForSeconds(8);
-        Destroy(gameObject);
+        isDead = true;
+        Destroy(gameObject, 8);
     }
 }
