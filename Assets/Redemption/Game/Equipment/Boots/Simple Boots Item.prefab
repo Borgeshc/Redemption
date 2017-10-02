@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 135510690409716596}
   m_Layer: 9
   m_Name: Simple Boots Item
-  m_TagString: Untagged
+  m_TagString: Loot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,7 +66,7 @@ Transform:
   m_GameObject: {fileID: 1171473362044352}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -19.251469, y: 1.8638285e-16, z: -4.31}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 4760559395681854}
   m_Father: {fileID: 0}
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   interactionTransform: {fileID: 4934859106588662}
+  focusGraphic: {fileID: 0}
   item: {fileID: 11400000, guid: 4d5244bda005f6f479b9b38a89eb5ecc, type: 2}
 --- !u!135 &135510690409716596
 SphereCollider:

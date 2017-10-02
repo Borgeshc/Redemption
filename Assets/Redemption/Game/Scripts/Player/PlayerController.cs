@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 
     public Texture2D mainCursor;
     public Texture2D attackCursor;
+    public Texture2D lootCursor;
 
     public GameObject clickToMoveEffect;
 
@@ -54,7 +55,16 @@ public class PlayerController : MonoBehaviour
                     SetFocus(interactable);
                 }
             }
-            Cursor.SetCursor(attackCursor, new Vector2(attackCursor.width / 2, attackCursor.height / 2), CursorMode.Auto);
+
+            switch (hit.transform.tag)
+            {
+                case "Attackable":
+                    Cursor.SetCursor(attackCursor, new Vector2(attackCursor.width / 2, attackCursor.height / 2), CursorMode.Auto);
+                    break;
+                case "Loot":
+                    Cursor.SetCursor(lootCursor, new Vector2(lootCursor.width / 2, lootCursor.height / 2), CursorMode.Auto);
+                    break;
+            }
         }
         else if (Physics.Raycast(ray, out hit, 100, movementMask))
         {

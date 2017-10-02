@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 135269391675612452}
   m_Layer: 9
   m_Name: Simple Sword Item
-  m_TagString: Untagged
+  m_TagString: Loot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66,7 +66,7 @@ Transform:
   m_GameObject: {fileID: 1788883480143416}
   m_LocalRotation: {x: -0, y: -0.8513722, z: -0, w: 0.5245621}
   m_LocalPosition: {x: -22.69, y: 0, z: -6.28}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 4006012181059454}
   m_Father: {fileID: 0}
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 3
   interactionTransform: {fileID: 4561951454001244}
+  focusGraphic: {fileID: 0}
   item: {fileID: 11400000, guid: 1347e3cd77ea5884c90920bb520db710, type: 2}
 --- !u!135 &135269391675612452
 SphereCollider:
