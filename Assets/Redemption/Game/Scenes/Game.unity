@@ -5650,7 +5650,7 @@ MonoBehaviour:
   solver:
     layers:
       serializedVersion: 2
-      m_Bits: 1280
+      m_Bits: 256
     maxStep: 0.5
     heightOffset: 0
     footSpeed: 2.5
@@ -8644,48 +8644,6 @@ Transform:
   m_Father: {fileID: 1921095393}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -100, y: -35, z: 75}
---- !u!1001 &1057228535
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4698020213700400, guid: ba0234618948cca4f804c6b95d10e372, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4698020213700400, guid: ba0234618948cca4f804c6b95d10e372, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4698020213700400, guid: ba0234618948cca4f804c6b95d10e372, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4698020213700400, guid: ba0234618948cca4f804c6b95d10e372, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4698020213700400, guid: ba0234618948cca4f804c6b95d10e372, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4698020213700400, guid: ba0234618948cca4f804c6b95d10e372, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4698020213700400, guid: ba0234618948cca4f804c6b95d10e372, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4698020213700400, guid: ba0234618948cca4f804c6b95d10e372, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: ba0234618948cca4f804c6b95d10e372, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1065543882
 GameObject:
   m_ObjectHideFlags: 0
@@ -12800,7 +12758,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1250830959
 GameObject:
@@ -18486,7 +18444,7 @@ Transform:
   m_LocalScale: {x: 200, y: 200, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1823084455
 GameObject:
@@ -18899,7 +18857,6 @@ GameObject:
   - component: {fileID: 1941049015}
   - component: {fileID: 1941049021}
   - component: {fileID: 1941049020}
-  - component: {fileID: 1941049022}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -19001,7 +18958,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1941049014}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8780e32467983984181b4ad8ba31acd3, type: 3}
   m_Name: 
@@ -19012,31 +18969,10 @@ MonoBehaviour:
   min: 3
   max: 8
   rotateSpeed: 1
-  doRotate: 0
+  doRotate: 1
   doZoom: 1
   zoomStep: 30
   zoomSpeed: 5
---- !u!114 &1941049022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1941049014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd9a2576f23b5e94fa1ac6e9aeff08ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 496568955}
-  distance: 3
-  height: 1
-  damping: 5
-  smoothRotation: 1
-  rotationDamping: 10
-  targetLookAtOffset: {x: 0, y: 0, z: 0}
-  bumperDistanceCheck: 5
-  bumperCameraHeight: 1
-  bumperRayOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &1942498744
 GameObject:
   m_ObjectHideFlags: 0
