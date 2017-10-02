@@ -7,7 +7,8 @@ public class CharacterCombat : MonoBehaviour
 {
     public float attackFrequency = 1f;
 
-    private bool attacking;
+    [HideInInspector]
+    public  bool attacking;
 
     CharacterStats enemyStats;
 
@@ -20,7 +21,7 @@ public class CharacterCombat : MonoBehaviour
         characterAnimator = GetComponent<CharacterAnimator>();
     }
 
-    public void BasicAttack(CharacterStats targetStats)
+    public virtual void BasicAttack(CharacterStats targetStats)
     {
         if(!attacking)
         {
@@ -32,7 +33,7 @@ public class CharacterCombat : MonoBehaviour
         }
     }
 
-    public void SecondaryAttack(CharacterStats targetStats)
+    public virtual void SecondaryAttack(CharacterStats targetStats)
     {
         if (!attacking)
         {
@@ -45,7 +46,7 @@ public class CharacterCombat : MonoBehaviour
         }
     }
 
-    IEnumerator GlobalCooldown()
+    public IEnumerator GlobalCooldown()
     {
         yield return new WaitForSeconds(attackFrequency);
         attacking = false;

@@ -34,8 +34,8 @@ public class PlayerController : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject() || stats.isDead) //If you are currently hovering over UI
             return;
 
-        basicAttack = Input.GetMouseButton(0);
-        secondaryAttack = Input.GetMouseButton(1);
+        basicAttack = Input.GetMouseButtonDown(0);
+        secondaryAttack = Input.GetMouseButtonDown(1);
 
         bool stopWalking = Input.GetKey(KeyCode.LeftShift);
 
@@ -70,7 +70,6 @@ public class PlayerController : MonoBehaviour
         {
             if (secondaryAttack || basicAttack)
             {
-                if(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
                 Instantiate(clickToMoveEffect, hit.point, Quaternion.identity);
 
                 if (!stopWalking)

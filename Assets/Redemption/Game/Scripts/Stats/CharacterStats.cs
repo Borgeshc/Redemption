@@ -18,7 +18,7 @@ public class CharacterStats : MonoBehaviour
 
     public GameObject hitEffect;
 
-    public bool hasHealthBar;
+    public bool hasCbtText;
     public Image healthBar;
     public Text regularCombatText;
     public Text criticalCombatText;
@@ -32,7 +32,6 @@ public class CharacterStats : MonoBehaviour
     {
         currentHealth = maxHealth;
         anim = GetComponent<CharacterAnimator>();
-        if (hasHealthBar)
             UpdateHealthBar();
     }
 
@@ -45,20 +44,20 @@ public class CharacterStats : MonoBehaviour
 
         if (CritChance())
         {
-            if(hasHealthBar)
+            if(hasCbtText)
             StartCoroutine(FloatingCombatText((damage * 2), criticalCombatText));
             currentHealth -= damage * 2;
         }
         else
         {
-            if(hasHealthBar)
+            if(hasCbtText)
             StartCoroutine(FloatingCombatText(damage, regularCombatText));
             currentHealth -= damage;
         }
 
+        Hit();
         anim.Hit();
-
-        if (hasHealthBar)
+        
             UpdateHealthBar();
 
         if (currentHealth <= 0)
@@ -101,8 +100,7 @@ public class CharacterStats : MonoBehaviour
     public void Respawn()
     {
         currentHealth = maxHealth;
-
-        if (hasHealthBar)
+        
             UpdateHealthBar();
 
         isDead = false;
