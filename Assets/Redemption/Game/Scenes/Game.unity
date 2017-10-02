@@ -12722,13 +12722,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 1622821916103092, guid: 2ffda5662deb5b244996900b267598a5, type: 2}
-  - {fileID: 1299400779235142, guid: ba0234618948cca4f804c6b95d10e372, type: 2}
-  - {fileID: 1059898899226038, guid: ee7b14a0dfe4c3a4ba5fe6c1c4e64308, type: 2}
-  - {fileID: 1299400779235142, guid: ba0234618948cca4f804c6b95d10e372, type: 2}
-  - {fileID: 1299400779235142, guid: ba0234618948cca4f804c6b95d10e372, type: 2}
+  - {fileID: 1011242212760352, guid: 57ddfb9ccdec5754689408ffb66571bd, type: 2}
   walls:
-  - {fileID: 1299510117180312, guid: ac7e429985d637a408d29091922d9547, type: 2}
+  - {fileID: 1667792869214284, guid: e05678511b9e981468567cd1d37b694e, type: 2}
   createdTileLocations: []
   createdTiles: []
   wallLocations: []
