@@ -48,7 +48,6 @@ public class CharacterAnimator : MonoBehaviour
 
     public void Died()
     {
-        print("Died");
         anim.SetBool("Died", true);
     }
 

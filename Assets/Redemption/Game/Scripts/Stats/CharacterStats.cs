@@ -105,7 +105,6 @@ public class CharacterStats : MonoBehaviour
     public void LoseMana(float loseAmount)
     {
         if (!hasManaBar) return;
-        print("Lose Mana");
 
         if (currentMana - loseAmount >= 0)
             currentMana -= loseAmount;
@@ -119,7 +118,7 @@ public class CharacterStats : MonoBehaviour
     void UpdateUI()
     {
         if (!hasManaBar) return;
-        print("Updating Mana");
+        
         manaBar.fillAmount = (currentMana / maxMana);
     }
 
