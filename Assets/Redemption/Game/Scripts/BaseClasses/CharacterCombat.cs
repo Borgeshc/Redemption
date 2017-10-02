@@ -6,6 +6,8 @@ using UnityEngine;
 public class CharacterCombat : MonoBehaviour
 {
     public float attackFrequency = 1f;
+    public float basicAttackManaGain;
+    public float secondaryAttackManaLoss;
 
     [HideInInspector]
     public  bool attacking;
@@ -29,6 +31,7 @@ public class CharacterCombat : MonoBehaviour
             enemyStats = targetStats;
             characterAnimator.BasicAttack();
             DoDamage();
+            myStats.GainMana(basicAttackManaGain);
             StartCoroutine(GlobalCooldown());
         }
     }
@@ -42,6 +45,7 @@ public class CharacterCombat : MonoBehaviour
             characterAnimator.SecondaryAttack();
             print("SecondaryAttack");
             DoDamage();
+            myStats.LoseMana(secondaryAttackManaLoss);
             StartCoroutine(GlobalCooldown());
         }
     }

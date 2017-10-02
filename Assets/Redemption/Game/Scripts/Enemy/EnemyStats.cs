@@ -15,6 +15,7 @@ public class EnemyStats : CharacterStats
     public override void Die()
     {
         base.Die();
+        gameObject.layer = LayerMask.NameToLayer("Default");
         Destroy(gameObject, 8);
     }
 }

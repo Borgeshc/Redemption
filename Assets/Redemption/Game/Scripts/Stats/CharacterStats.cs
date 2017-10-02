@@ -5,8 +5,12 @@ using System.Collections;
 public class CharacterStats : MonoBehaviour
 {
     public float maxHealth = 100;
-    public float currentHealth { get; private set; }
+    public float currentHealth { get; set; }
     public int critChance;
+
+    public bool hasManaBar;
+    public float maxMana;
+    public float currentMana;
 
     public Stat basicAttackDamageMin;
     public Stat basicAttackDamageMax;
@@ -23,6 +27,9 @@ public class CharacterStats : MonoBehaviour
     public Text regularCombatText;
     public Text criticalCombatText;
 
+    public Image manaBar;
+
+
     CharacterAnimator anim;
 
     [HideInInspector]
@@ -32,7 +39,13 @@ public class CharacterStats : MonoBehaviour
     {
         currentHealth = maxHealth;
         anim = GetComponent<CharacterAnimator>();
-            UpdateHealthBar();
+        UpdateHealthBar();
+
+        if (hasManaBar)
+        {
+            currentMana = maxMana;
+            UpdateUI();
+        }
     }
 
     public void TakeDamage(int damage)
@@ -76,6 +89,50 @@ public class CharacterStats : MonoBehaviour
             return false;
     }
 
+    public void GainMana(float gainAmount)
+    {
+        if (!hasManaBar) return;
+        print("Gain Mana");
+
+        if (currentMana + gainAmount <= maxMana)
+            currentMana += gainAmount;
+        else
+            currentMana = maxMana;
+
+        UpdateUI();
+    }
+
+    public void LoseMana(float loseAmount)
+    {
+        if (!hasManaBar) return;
+        print("Lose Mana");
+
+        if (currentMana - loseAmount >= 0)
+            currentMana -= loseAmount;
+        else
+            currentMana = 0;
+
+        UpdateUI();
+    }
+
+
+    void UpdateUI()
+    {
+        if (!hasManaBar) return;
+        print("Updating Mana");
+        manaBar.fillAmount = (currentMana / maxMana);
+    }
+
+    public void GainHealth(int gainAmount)
+    {
+        if (currentHealth + gainAmount <= maxHealth)
+            currentHealth += gainAmount;
+        else
+            currentHealth = maxHealth;
+
+        UpdateHealthBar();
+    }
+
     IEnumerator FloatingCombatText(float damagedAmt, Text combatText)
     {
         yield return new WaitForSeconds(.2f);
@@ -87,7 +144,7 @@ public class CharacterStats : MonoBehaviour
         regularCombatText.gameObject.SetActive(false);
     }
 
-    void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
         healthBar.fillAmount = (currentHealth / maxHealth);
     }

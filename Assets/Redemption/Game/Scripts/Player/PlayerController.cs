@@ -68,8 +68,9 @@ public class PlayerController : MonoBehaviour
         }
         else if (Physics.Raycast(ray, out hit, 100, movementMask))
         {
-            if (secondaryAttack || basicAttack)
+            if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
             {
+                if(secondaryAttack || basicAttack)
                 Instantiate(clickToMoveEffect, hit.point, Quaternion.identity);
 
                 if (!stopWalking)
