@@ -24,7 +24,9 @@ public class CharacterStats : MonoBehaviour
     public Text criticalCombatText;
 
     CharacterAnimator anim;
-    bool isDead;
+
+    [HideInInspector]
+    public bool isDead;
 
     private void Awake()
     {
@@ -91,13 +93,23 @@ public class CharacterStats : MonoBehaviour
         healthBar.fillAmount = (currentHealth / maxHealth);
     }
 
-    public virtual void Die()
-    {
-        PlayerManager.instance.KillPlayer();
-    }
-
     public void Hit()
     {
         hitEffect.SetActive(true);
+    }
+
+    public void Respawn()
+    {
+        currentHealth = maxHealth;
+
+        if (hasHealthBar)
+            UpdateHealthBar();
+
+        isDead = false;
+    }
+
+    public virtual void Die()
+    {
+        anim.Died();
     }
 }

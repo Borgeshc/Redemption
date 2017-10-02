@@ -15,9 +15,26 @@ public class PlayerManager : MonoBehaviour
     #endregion
 
     public GameObject player;
+    public GameObject respawnPanel;
+
+    CharacterAnimator anim;
+    CharacterStats stats;
+
+    private void Start()
+    {
+        anim = player.GetComponent<CharacterAnimator>();
+        stats = player.GetComponent<CharacterStats>();
+    }
 
     public void KillPlayer()
     {
-        //Bring up respawn panel
+        respawnPanel.SetActive(true);
+    }
+
+    public void Respawn()
+    {
+        player.transform.position = Vector3.zero;
+        anim.Respawn();
+        stats.Respawn();
     }
 }

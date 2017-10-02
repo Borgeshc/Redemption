@@ -11,22 +11,26 @@ public class PlayerController : MonoBehaviour
     public Texture2D mainCursor;
     public Texture2D attackCursor;
 
+    public GameObject clickToMoveEffect;
+
     public static bool basicAttack;
     public static bool secondaryAttack;
 
     Camera cam;
     PlayerMovement movement;
+    CharacterStats stats;
 
     private void Start()
     {
         cam = Camera.main;
         movement = GetComponent<PlayerMovement>();
+        stats = GetComponent<CharacterStats>();
         Cursor.SetCursor(mainCursor, new Vector2(mainCursor.width / 2, mainCursor.height / 2), CursorMode.Auto);
     }
 
     private void Update()
     {
-        if (EventSystem.current.IsPointerOverGameObject()) //If you are currently hovering over UI
+        if (EventSystem.current.IsPointerOverGameObject() || stats.isDead) //If you are currently hovering over UI
             return;
 
         basicAttack = Input.GetMouseButton(0);
@@ -56,6 +60,9 @@ public class PlayerController : MonoBehaviour
         {
             if (secondaryAttack || basicAttack)
             {
+                if(Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+                Instantiate(clickToMoveEffect, hit.point, Quaternion.identity);
+
                 if (!stopWalking)
                     movement.MoveToPoint(hit.point);
 

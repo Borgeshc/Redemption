@@ -45,4 +45,15 @@ public class CharacterAnimator : MonoBehaviour
         int randomHit = Random.Range(0, numberOfHits);
         anim.SetTrigger("Hit" + (randomHit + 1));
     }
+
+    public void Died()
+    {
+        print("Died");
+        anim.SetBool("Died", true);
+    }
+
+    public void Respawn()
+    {
+        anim.SetBool("Died", false);
+    }
 }

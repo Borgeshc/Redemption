@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 public class EnemyStats : CharacterStats
 {
-    [HideInInspector]
-    public bool isDead;
-
     Animator anim;
 
     private void Start()
@@ -17,8 +14,7 @@ public class EnemyStats : CharacterStats
 
     public override void Die()
     {
-        anim.SetBool("Died", true);
-        isDead = true;
+        base.Die();
         Destroy(gameObject, 8);
     }
 }
