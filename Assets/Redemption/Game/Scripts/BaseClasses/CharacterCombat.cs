@@ -27,7 +27,6 @@ public class CharacterCombat : MonoBehaviour
             attacking = true;
             enemyStats = targetStats;
             characterAnimator.BasicAttack();
-            print("BasicAttack");
             DoDamage();
             StartCoroutine(GlobalCooldown());
         }
@@ -54,7 +53,6 @@ public class CharacterCombat : MonoBehaviour
 
     void DoDamage()
     {
-
         if (PlayerController.basicAttack)
         {
             int damage = Random.Range(myStats.basicAttackDamageMin.GetValue(), myStats.basicAttackDamageMax.GetValue());
@@ -63,6 +61,11 @@ public class CharacterCombat : MonoBehaviour
         else if (PlayerController.secondaryAttack)
         {
             int damage = Random.Range(myStats.secondaryAttackDamageMin.GetValue(), myStats.secondaryAttackDamageMax.GetValue());
+            enemyStats.TakeDamage(damage);
+        }
+        else
+        {
+            int damage = Random.Range(myStats.basicAttackDamageMin.GetValue(), myStats.basicAttackDamageMax.GetValue());
             enemyStats.TakeDamage(damage);
         }
     }

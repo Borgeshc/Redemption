@@ -6,6 +6,7 @@ public class CharacterAnimator : MonoBehaviour
     public float movementSmoothTime;
     public int numberOfBasicAttacks;
     public int numberOfSecondaryAttacks;
+    public int numberOfHits;
 
     Animator anim;
     NavMeshAgent agent;
@@ -31,12 +32,17 @@ public class CharacterAnimator : MonoBehaviour
     {
         int randomAttack = Random.Range(0, numberOfBasicAttacks);
         anim.SetTrigger("BasicAttack" + (randomAttack + 1));
-        print("BasicAttack" + (randomAttack + 1));
     }
 
     public void SecondaryAttack()
     {
         int randomAttack = Random.Range(0, numberOfSecondaryAttacks);
         anim.SetTrigger("SecondaryAttack" + (randomAttack + 1));
+    }
+
+    public void Hit()
+    {
+        int randomHit = Random.Range(0, numberOfHits);
+        anim.SetTrigger("Hit" + (randomHit + 1));
     }
 }

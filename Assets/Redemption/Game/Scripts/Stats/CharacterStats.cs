@@ -23,19 +23,20 @@ public class CharacterStats : MonoBehaviour
     public Text regularCombatText;
     public Text criticalCombatText;
 
-    Animator anim;
+    CharacterAnimator anim;
+    bool isDead;
 
     private void Awake()
     {
         currentHealth = maxHealth;
-        anim = GetComponentInChildren<Animator>();
+        anim = GetComponent<CharacterAnimator>();
         if (hasHealthBar)
             UpdateHealthBar();
     }
 
     public void TakeDamage(int damage)
     {
-        print("Take Damage");
+        if (isDead) return;
 
         damage -= armor.GetValue();
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
@@ -52,13 +53,15 @@ public class CharacterStats : MonoBehaviour
             StartCoroutine(FloatingCombatText(damage, regularCombatText));
             currentHealth -= damage;
         }
-        anim.SetTrigger("Hit");
+
+        anim.Hit();
 
         if (hasHealthBar)
             UpdateHealthBar();
 
         if (currentHealth <= 0)
         {
+            isDead = true;
             Die();
         }
     }

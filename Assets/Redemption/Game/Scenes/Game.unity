@@ -8662,6 +8662,7 @@ MonoBehaviour:
   movementSmoothTime: 1
   numberOfBasicAttacks: 7
   numberOfSecondaryAttacks: 1
+  numberOfHits: 2
 --- !u!114 &496568964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12646,6 +12647,7 @@ MonoBehaviour:
   movementSmoothTime: 0.1
   numberOfBasicAttacks: 1
   numberOfSecondaryAttacks: 0
+  numberOfHits: 1
 --- !u!114 &1138746226
 MonoBehaviour:
   m_ObjectHideFlags: 0
