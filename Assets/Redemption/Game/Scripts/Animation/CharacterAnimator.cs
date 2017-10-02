@@ -31,6 +31,7 @@ public class CharacterAnimator : MonoBehaviour
     {
         int randomAttack = Random.Range(0, numberOfBasicAttacks);
         anim.SetTrigger("BasicAttack" + (randomAttack + 1));
+        print("BasicAttack" + (randomAttack + 1));
     }
 
     public void SecondaryAttack()

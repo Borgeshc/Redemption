@@ -14,15 +14,19 @@ public class PlayerStats : CharacterStats
         if(newItem != null)
         {
             armor.AddModifier(newItem.armorModifier);
-            basicAttackDamage.AddModifier(newItem.damageModifier);
-            secondaryAttackDamage.AddModifier(newItem.damageModifier);
+            basicAttackDamageMin.AddModifier(newItem.damageModifier);
+            basicAttackDamageMax.AddModifier(newItem.damageModifier);
+            secondaryAttackDamageMin.AddModifier(newItem.damageModifier);
+            secondaryAttackDamageMax.AddModifier(newItem.damageModifier);
         }
 
         if (oldItem != null)
         {
             armor.RemoveModifier(oldItem.armorModifier);
-            basicAttackDamage.RemoveModifier(oldItem.damageModifier);
-            secondaryAttackDamage.RemoveModifier(oldItem.damageModifier);
+            basicAttackDamageMin.RemoveModifier(oldItem.damageModifier);
+            basicAttackDamageMax.RemoveModifier(oldItem.damageModifier);
+            secondaryAttackDamageMin.RemoveModifier(oldItem.damageModifier);
+            secondaryAttackDamageMax.RemoveModifier(oldItem.damageModifier);
         }
     }
 

@@ -23,8 +23,6 @@ public class NavigationBaker : MonoBehaviour
 
     void StartGeneration(List<GameObject> floors)
     {
-        print("no ");
-
         StartCoroutine(GenerateNavMesh(floors));
     }
 
@@ -42,7 +40,10 @@ public class NavigationBaker : MonoBehaviour
 
         for (int i = 0; i < surfaces.Count; i++)
         {
-            surfaces[i].BuildNavMesh();
+            if (surfaces[i] != null)
+                surfaces[i].BuildNavMesh();
+            else
+                Debug.Log("Surface Missing");
             yield return 0;
         }
 

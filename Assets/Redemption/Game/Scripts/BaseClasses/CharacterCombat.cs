@@ -54,10 +54,16 @@ public class CharacterCombat : MonoBehaviour
 
     void DoDamage()
     {
-        print("Do Damage");
+
         if (PlayerController.basicAttack)
-            enemyStats.TakeDamage(myStats.basicAttackDamage.GetValue());
+        {
+            int damage = Random.Range(myStats.basicAttackDamageMin.GetValue(), myStats.basicAttackDamageMax.GetValue());
+            enemyStats.TakeDamage(damage);
+        }
         else if (PlayerController.secondaryAttack)
-            enemyStats.TakeDamage(myStats.secondaryAttackDamage.GetValue());
+        {
+            int damage = Random.Range(myStats.secondaryAttackDamageMin.GetValue(), myStats.secondaryAttackDamageMax.GetValue());
+            enemyStats.TakeDamage(damage);
+        }
     }
 }
