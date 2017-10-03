@@ -14,8 +14,9 @@ MonoBehaviour:
   name: Defender's Armor
   icon: {fileID: 21300000, guid: 080fc65c82037c147a393f7a16a99156, type: 3}
   isDefaultItem: 0
-  equipSlot: 0
-  itemMesh: {fileID: 1910352654984158, guid: c4969482c7dd7d74eb40c74a43424037, type: 2}
   armorModifier: 1
   damageModifier: 0
+  ItemRarity: 0
+  equipSlot: 0
+  itemMesh: {fileID: 1910352654984158, guid: c4969482c7dd7d74eb40c74a43424037, type: 2}
   maxManaModifier: 0

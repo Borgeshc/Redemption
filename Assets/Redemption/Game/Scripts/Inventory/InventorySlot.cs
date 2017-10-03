@@ -8,6 +8,11 @@ public class InventorySlot : MonoBehaviour
     public Image removeButtonImage;
     public Image removeButtonBackground;
 
+    public GameObject itemInfoPanel;
+    public Text itemName;
+    public Text itemDamage;
+    public Text itemArmor;
+
     Item item;
 
     public void AddItem(Item newItem)
@@ -42,4 +47,30 @@ public class InventorySlot : MonoBehaviour
         if (item != null)
             item.Use();
     }   
+
+    public void RetrieveItemInfo()
+    {
+        if (item == null) return;
+        itemInfoPanel.SetActive(true);
+        itemName.text = item.name;
+
+        switch(item.ItemRarity)
+        {
+            case Item.Rarity.Common:
+                itemName.color = new Color32(70, 248, 0, 255);
+                break;
+            case Item.Rarity.Rare:
+                itemName.color = new Color32(0,125,248,255);
+                break;
+            case Item.Rarity.Epic:
+                itemName.color = new Color32(162, 0, 248, 255);
+                break;
+            case Item.Rarity.Legendary:
+                itemName.color = new Color32(248, 118, 0, 255);
+                break;
+        }
+
+        itemDamage.text = "+" + item.damageModifier + " Damage";
+        itemArmor.text = "+" + item.armorModifier + " Armor";
+    }
 }

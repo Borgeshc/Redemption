@@ -14,8 +14,9 @@ MonoBehaviour:
   name: Defender's Boots
   icon: {fileID: 21300000, guid: 16273644ca7466b438ab39168a9861df, type: 3}
   isDefaultItem: 0
-  equipSlot: 2
-  itemMesh: {fileID: 1915594450634532, guid: aba64c6e20f3f904d9a699b53b90b766, type: 2}
   armorModifier: 1
   damageModifier: 0
+  ItemRarity: 0
+  equipSlot: 2
+  itemMesh: {fileID: 1915594450634532, guid: aba64c6e20f3f904d9a699b53b90b766, type: 2}
   maxManaModifier: 0

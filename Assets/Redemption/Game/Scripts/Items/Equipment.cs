@@ -7,9 +7,7 @@ public class Equipment : Item
 {
     public EquipmentSlot equipSlot;
     public GameObject itemMesh;
-
-    public int armorModifier;
-    public int damageModifier;
+    
     public int maxManaModifier;
 
     public override void Use()
