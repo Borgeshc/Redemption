@@ -17,6 +17,7 @@ public class PlayerManager : MonoBehaviour
 
     public GameObject player;
     public GameObject respawnPanel;
+    public GameObject miniMap;
 
     [Space, Header("Ability Bar")]
     public Image basicAbilityCooldown;
@@ -36,6 +37,14 @@ public class PlayerManager : MonoBehaviour
         stats = player.GetComponent<CharacterStats>();
         combat = player.GetComponent<PlayerCombat>();
         combat.SetPlayerManager(this);
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            miniMap.SetActive(!miniMap.activeSelf);
+        }
     }
 
     public void KillPlayer()
