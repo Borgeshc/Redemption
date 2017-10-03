@@ -43,7 +43,6 @@ public class CharacterCombat : MonoBehaviour
             attacking = true;
             enemyStats = targetStats;
             characterAnimator.SecondaryAttack();
-            print("SecondaryAttack");
             DoDamage();
             myStats.LoseMana(secondaryAttackManaLoss);
             StartCoroutine(GlobalCooldown());

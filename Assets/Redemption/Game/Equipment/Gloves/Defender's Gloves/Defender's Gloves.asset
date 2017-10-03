@@ -11,12 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8383fb5cd84c5674baef17727a8ac1da, type: 3}
   m_Name: Defender's Gloves
   m_EditorClassIdentifier: 
+  equipSlot: 1
   name: Defender's Gloves
   icon: {fileID: 21300000, guid: 61c91652259e6bc4a9913bebe9446aa3, type: 3}
   isDefaultItem: 0
   armorModifier: 1
   damageModifier: 0
   ItemRarity: 0
-  equipSlot: 1
-  itemMesh: {fileID: 0}
+  itemMesh: {fileID: 1675567459442854, guid: 5f981c0859efb1d40874de5797d185fc, type: 2}
   maxManaModifier: 0

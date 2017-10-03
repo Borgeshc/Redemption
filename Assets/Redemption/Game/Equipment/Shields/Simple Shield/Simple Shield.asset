@@ -11,9 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8383fb5cd84c5674baef17727a8ac1da, type: 3}
   m_Name: Simple Shield
   m_EditorClassIdentifier: 
+  equipSlot: 4
   name: Simple Shield
   icon: {fileID: 21300000, guid: 7ebd113711f4e674cacea2051debb3b4, type: 3}
   isDefaultItem: 0
-  equipSlot: 4
   armorModifier: 1
   damageModifier: 0
+  ItemRarity: 0
+  itemMesh: {fileID: 1866705172138394, guid: cbd73b8ebb472f342a1151c967c7fa5b, type: 2}
+  maxManaModifier: 0

@@ -14,6 +14,20 @@ public class EquipmentManager : MonoBehaviour
     }
     #endregion
 
+    [Header("Character Armor Locations")]
+    public GameObject armorSlot;
+    public GameObject glovesSlot;
+    public GameObject bootsSlot;
+    public GameObject weaponSlot;
+    public GameObject shieldSlot;
+
+    GameObject oldArmorSlot;
+    GameObject oldGlovesSlot;
+    GameObject oldBootsSlot;
+    GameObject oldWeaponSlot;
+    GameObject oldShieldSlot;
+
+    [Space, Header("UI")]
     public GameObject equippedInfoPanel;
     public Text equippedItemName;
     public Text equippedItemDamage;
@@ -48,6 +62,48 @@ public class EquipmentManager : MonoBehaviour
         {
             oldItem = currentEquipment[slotIndex];
             inventory.Add(oldItem);
+        }
+
+        switch (newItem.equipSlot)
+        {
+            case EquipmentSlot.Armor:
+                if (oldArmorSlot != null)
+                    oldArmorSlot.SetActive(false);
+
+                oldArmorSlot = armorSlot.transform.Find(newItem.name).gameObject;
+                oldArmorSlot.SetActive(true);
+
+                break;
+            case EquipmentSlot.Gloves:
+                if (oldGlovesSlot != null)
+                    oldGlovesSlot.SetActive(false);
+
+                oldGlovesSlot = glovesSlot.transform.Find(newItem.name).gameObject;
+                oldGlovesSlot.SetActive(true);
+                break;
+            case EquipmentSlot.Boots:
+                if (oldBootsSlot != null)
+                    oldBootsSlot.SetActive(false);
+
+                oldBootsSlot = bootsSlot.transform.Find(newItem.name).gameObject;
+                oldBootsSlot.SetActive(true);
+                break;
+            case EquipmentSlot.Weapon:
+                if (oldWeaponSlot != null)
+                    oldWeaponSlot.SetActive(false);
+
+                oldWeaponSlot = weaponSlot.transform.Find(newItem.name).gameObject;
+                oldWeaponSlot.SetActive(true);
+                break;
+            case EquipmentSlot.Shield:
+                if (oldShieldSlot != null)
+                    oldShieldSlot.SetActive(false);
+
+                oldShieldSlot = shieldSlot.transform.Find(newItem.name).gameObject;
+                oldShieldSlot.SetActive(true);
+                break;
+            default:
+                break;
         }
 
         OnEquipmentChanged(newItem, oldItem);

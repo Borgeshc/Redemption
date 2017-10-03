@@ -11,9 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8383fb5cd84c5674baef17727a8ac1da, type: 3}
   m_Name: Simple Sword
   m_EditorClassIdentifier: 
+  equipSlot: 3
   name: Simple Sword
   icon: {fileID: 21300000, guid: f1cd76357ac3d364cb77b6f6b64ddd1d, type: 3}
   isDefaultItem: 0
-  equipSlot: 3
   armorModifier: 0
   damageModifier: 1
+  ItemRarity: 0
+  itemMesh: {fileID: 1788883480143416, guid: dc142ed4d839c564da4812888b6c5c1a, type: 2}
+  maxManaModifier: 0

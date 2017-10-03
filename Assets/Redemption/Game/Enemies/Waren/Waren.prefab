@@ -2713,7 +2713,7 @@ MonoBehaviour:
   - {fileID: 1481368803608448, guid: cd2d299a7daecdd4499a72f84ba6f063, type: 2}
   - {fileID: 1866705172138394, guid: 415e808c0fe32614d918688fa760bf78, type: 2}
   - {fileID: 1788883480143416, guid: 0da03cae49cdb8e4fb27e06ab58ef4d0, type: 2}
-  chanceToDrop: 100
+  chanceToDrop: 5
 --- !u!114 &114575008897342668
 MonoBehaviour:
   m_ObjectHideFlags: 1

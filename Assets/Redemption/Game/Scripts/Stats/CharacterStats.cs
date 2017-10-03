@@ -92,7 +92,6 @@ public class CharacterStats : MonoBehaviour
     public void GainMana(float gainAmount)
     {
         if (!hasManaBar) return;
-        print("Gain Mana");
 
         if (currentMana + gainAmount <= maxMana)
             currentMana += gainAmount;

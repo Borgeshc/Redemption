@@ -11,11 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8383fb5cd84c5674baef17727a8ac1da, type: 3}
   m_Name: Simple Boots
   m_EditorClassIdentifier: 
+  equipSlot: 2
   name: Simple Boots
   icon: {fileID: 21300000, guid: 16273644ca7466b438ab39168a9861df, type: 3}
   isDefaultItem: 0
-  equipSlot: 2
-  itemMesh: {fileID: 0}
   armorModifier: 0
   damageModifier: 0
+  ItemRarity: 0
+  itemMesh: {fileID: 1034964886648388, guid: bd0d14a90faec534cad9fb79bb0cdda8, type: 2}
   maxManaModifier: 0
