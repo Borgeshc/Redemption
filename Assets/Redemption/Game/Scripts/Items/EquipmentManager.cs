@@ -19,6 +19,8 @@ public class EquipmentManager : MonoBehaviour
     public Text equippedItemDamage;
     public Text equippedItemArmor;
 
+    public Equipment[] starterGear;
+
     Equipment[] currentEquipment;
     Inventory inventory;
 
@@ -31,6 +33,9 @@ public class EquipmentManager : MonoBehaviour
 
         int numberOfSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
         currentEquipment = new Equipment[numberOfSlots];
+
+        for (int i = 0; i < starterGear.Length; i++)
+            Equip(starterGear[i]);
     }
 
     public void Equip(Equipment newItem)

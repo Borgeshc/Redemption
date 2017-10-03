@@ -4770,6 +4770,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114548902376130850, guid: 5cb619d441cc03d40809a7e1fac25292,
+        type: 2}
+      propertyPath: chanceToDrop
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5cb619d441cc03d40809a7e1fac25292, type: 2}
   m_IsPrefabParent: 0
@@ -13224,6 +13229,12 @@ MonoBehaviour:
   equippedItemName: {fileID: 937077954}
   equippedItemDamage: {fileID: 302687657}
   equippedItemArmor: {fileID: 405945906}
+  starterGear:
+  - {fileID: 11400000, guid: 4d5244bda005f6f479b9b38a89eb5ecc, type: 2}
+  - {fileID: 11400000, guid: 0538b863efc5d9e4fbebe7711ea47e79, type: 2}
+  - {fileID: 11400000, guid: 1347e3cd77ea5884c90920bb520db710, type: 2}
+  - {fileID: 11400000, guid: 7164ce50fbed817448986a05186f09a8, type: 2}
+  - {fileID: 11400000, guid: e2453ac9102c23f4bb4f7c73052be915, type: 2}
 --- !u!114 &511158779
 MonoBehaviour:
   m_ObjectHideFlags: 0
