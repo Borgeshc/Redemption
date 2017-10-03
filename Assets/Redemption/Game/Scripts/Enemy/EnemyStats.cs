@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class EnemyStats : CharacterStats
 {
     Animator anim;
+    public LootTable lootTable;
 
     private void Start()
     {
@@ -16,6 +17,7 @@ public class EnemyStats : CharacterStats
     {
         base.Die();
         gameObject.layer = LayerMask.NameToLayer("Default");
+        lootTable.DropLoot();
         Destroy(gameObject, 8);
     }
 }

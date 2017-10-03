@@ -15,5 +15,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 16273644ca7466b438ab39168a9861df, type: 3}
   isDefaultItem: 0
   equipSlot: 2
+  itemMesh: {fileID: 0}
   armorModifier: 0
   damageModifier: 0
+  maxManaModifier: 0

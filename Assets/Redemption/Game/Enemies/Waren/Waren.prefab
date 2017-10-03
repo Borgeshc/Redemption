@@ -1050,6 +1050,7 @@ GameObject:
   - component: {fileID: 114610167053811496}
   - component: {fileID: 114485679752687992}
   - component: {fileID: 135890509975874680}
+  - component: {fileID: 114548902376130850}
   m_Layer: 9
   m_Name: Waren
   m_TagString: Attackable
@@ -2692,6 +2693,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 0.5
+--- !u!114 &114548902376130850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1742212447227628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a28f9f06e117d74ea5a054708457ab5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootTable:
+  - {fileID: 1052609486290784, guid: 70160660d104c094b812fb8360edb650, type: 2}
+  - {fileID: 1278119328181446, guid: 880238e1712236a47a4f86fcf3c9f568, type: 2}
+  - {fileID: 1425376434236788, guid: ee04d8322918e8b488caa4bc31e81b41, type: 2}
+  - {fileID: 1171473362044352, guid: b02aba9c56ef42047ac37204de81efdf, type: 2}
+  - {fileID: 1089142884018292, guid: d33ef1f5a84cf2e4eb68f3767537ea7f, type: 2}
+  - {fileID: 1481368803608448, guid: cd2d299a7daecdd4499a72f84ba6f063, type: 2}
+  - {fileID: 1866705172138394, guid: 415e808c0fe32614d918688fa760bf78, type: 2}
+  - {fileID: 1788883480143416, guid: 0da03cae49cdb8e4fb27e06ab58ef4d0, type: 2}
+  chanceToDrop: 50
 --- !u!114 &114575008897342668
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2725,6 +2747,7 @@ MonoBehaviour:
   criticalCombatText: {fileID: 114803978179776352}
   manaBar: {fileID: 0}
   isDead: 0
+  lootTable: {fileID: 114548902376130850}
 --- !u!114 &114610167053811496
 MonoBehaviour:
   m_ObjectHideFlags: 1
