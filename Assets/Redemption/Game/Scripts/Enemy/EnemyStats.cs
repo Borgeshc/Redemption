@@ -5,12 +5,16 @@ using UnityEngine.UI;
 
 public class EnemyStats : CharacterStats
 {
-    Animator anim;
     public LootTable lootTable;
+    public float experience;
+
+    ExperienceManager experienceManager;
+    Animator anim;
 
     private void Start()
     {
         anim = GetComponentInChildren<Animator>();
+        experienceManager = GameObject.Find("GameManager").GetComponent<ExperienceManager>();
     }
 
     public override void Die()
@@ -18,6 +22,7 @@ public class EnemyStats : CharacterStats
         base.Die();
         gameObject.layer = LayerMask.NameToLayer("Default");
         lootTable.DropLoot();
+        experienceManager.AddExperience(experience);
         Destroy(gameObject, 8);
     }
 }

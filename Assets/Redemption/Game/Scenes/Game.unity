@@ -4770,6 +4770,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114575008897342668, guid: 5cb619d441cc03d40809a7e1fac25292,
+        type: 2}
+      propertyPath: experience
+      value: 275
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5cb619d441cc03d40809a7e1fac25292, type: 2}
   m_IsPrefabParent: 0
@@ -13170,6 +13175,7 @@ GameObject:
   - component: {fileID: 511158777}
   - component: {fileID: 511158778}
   - component: {fileID: 511158779}
+  - component: {fileID: 511158780}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -13250,6 +13256,19 @@ MonoBehaviour:
   secondAbilityCooldown: {fileID: 883581514}
   thirdAbilityCooldown: {fileID: 1938678581}
   fourthAbilityCooldown: {fileID: 680317227}
+--- !u!114 &511158780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 511158775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee70886196a547843893ea055f777506, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  experienceBar: {fileID: 726901009}
+  maxExperience: 1000
 --- !u!1 &516200453
 GameObject:
   m_ObjectHideFlags: 0
@@ -17848,7 +17867,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
 --- !u!222 &726901010

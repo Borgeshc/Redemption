@@ -2749,6 +2749,7 @@ MonoBehaviour:
   manaBar: {fileID: 0}
   isDead: 0
   lootTable: {fileID: 114548902376130850}
+  experience: 100
 --- !u!114 &114610167053811496
 MonoBehaviour:
   m_ObjectHideFlags: 1
