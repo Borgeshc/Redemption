@@ -8,6 +8,9 @@ public class ExperienceManager : MonoBehaviour
     public Image experienceBar;
     public float maxExperience;
 
+    public delegate void LevelUp();
+    public static event LevelUp OnLeveledUp;
+
     float currentExperience;
     int currentLevel;
 
@@ -28,6 +31,8 @@ public class ExperienceManager : MonoBehaviour
         else
         {
             currentLevel++;
+            OnLeveledUp();
+
             float neededExperience = maxExperience / currentExperience;
             float newExperience = experience - neededExperience;
 

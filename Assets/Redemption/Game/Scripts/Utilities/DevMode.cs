@@ -52,6 +52,7 @@ public class DevMode : MonoBehaviour
         PlayerPrefs.SetInt("NewGame", 0);
         PlayerPrefs.SetFloat("Experience", 0);
         PlayerPrefs.SetInt("Level", 1);
+        PlayerPrefs.SetInt("SkillPoints", 0);
 
         print("Player Prefs Reset");
     }
