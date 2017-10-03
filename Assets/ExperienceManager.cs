@@ -9,9 +9,15 @@ public class ExperienceManager : MonoBehaviour
     public float maxExperience;
 
     float currentExperience;
+    int currentLevel;
 
     private void Start()
     {
+        if(PlayerPrefs.GetInt("NewGame") == 0)
+            currentLevel = 1;
+
+        currentExperience = PlayerPrefs.GetFloat("Experience");
+        currentLevel = PlayerPrefs.GetInt("Level");
         UpdateExperience();
     }
 
@@ -21,6 +27,7 @@ public class ExperienceManager : MonoBehaviour
             currentExperience += experience;
         else
         {
+            currentLevel++;
             float neededExperience = maxExperience / currentExperience;
             float newExperience = experience - neededExperience;
 
@@ -33,7 +40,8 @@ public class ExperienceManager : MonoBehaviour
 
     private void UpdateExperience()
     {
-        print("Experience " + (currentExperience / maxExperience));
         experienceBar.fillAmount = (currentExperience / maxExperience);
+        PlayerPrefs.SetFloat("Experience", currentExperience);
+        PlayerPrefs.SetInt("Level", currentLevel);
     }
 }

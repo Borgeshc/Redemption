@@ -37,6 +37,9 @@ public class PlayerManager : MonoBehaviour
         stats = player.GetComponent<CharacterStats>();
         combat = player.GetComponent<PlayerCombat>();
         combat.SetPlayerManager(this);
+
+        if (PlayerPrefs.GetInt("NewGame") == 0)
+            PlayerPrefs.SetInt("NewGame", 1);
     }
 
     private void Update()
