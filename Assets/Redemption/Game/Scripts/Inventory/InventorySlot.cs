@@ -13,7 +13,14 @@ public class InventorySlot : MonoBehaviour
     public Text itemDamage;
     public Text itemArmor;
 
+    EquipmentManager equipmentManager;
+
     Item item;
+
+    private void Start()
+    {
+        equipmentManager = transform.root.GetComponent<EquipmentManager>();
+    }
 
     public void AddItem(Item newItem)
     {
@@ -72,5 +79,7 @@ public class InventorySlot : MonoBehaviour
 
         itemDamage.text = "+" + item.damageModifier + " Damage";
         itemArmor.text = "+" + item.armorModifier + " Armor";
+
+        equipmentManager.CheckCurrentItemInSlot(item);
     }
 }
