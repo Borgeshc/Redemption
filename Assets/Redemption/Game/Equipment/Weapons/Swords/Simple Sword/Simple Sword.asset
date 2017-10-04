@@ -15,8 +15,14 @@ MonoBehaviour:
   name: Simple Sword
   icon: {fileID: 21300000, guid: f1cd76357ac3d364cb77b6f6b64ddd1d, type: 3}
   isDefaultItem: 0
-  armorModifier: 0
-  damageModifier: 1
+  damage: 1
+  armor: 0
+  critChance: 0
+  critDamage: 0
+  maxHealth: 0
+  healthRegen: 0
+  maxMana: 0
+  manaRegen: 0
   ItemRarity: 0
   itemMesh: {fileID: 1788883480143416, guid: dc142ed4d839c564da4812888b6c5c1a, type: 2}
   maxManaModifier: 0

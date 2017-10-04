@@ -7,16 +7,22 @@ public class Item : ScriptableObject
     new public string name = "New Item";
     public Sprite icon = null;
     public bool isDefaultItem = false;
-    
-    public int armorModifier;
-    public int damageModifier;
+
+    public float damage;
+    public float armor;
+    public float critChance;
+    public float critDamage;
+    public float maxHealth;
+    public float healthRegen;
+    public float maxMana;
+    public float manaRegen;
 
     public enum Rarity
     {
-        Common,
-        Rare,
-        Epic,
-        Legendary
+        Common,             //1 Modifier
+        Rare,               //2 Modifiers
+        Epic,               //4 Modifiers
+        Legendary           //6 Modifiers
     }
 
     public Rarity ItemRarity;

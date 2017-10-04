@@ -2614,7 +2614,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: e50940fcfe0d07e40a5fd80ff399bcfb, type: 3}
     m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
@@ -2714,7 +2714,7 @@ MonoBehaviour:
   - {fileID: 1866705172138394, guid: 415e808c0fe32614d918688fa760bf78, type: 2}
   - {fileID: 1788883480143416, guid: 0da03cae49cdb8e4fb27e06ab58ef4d0, type: 2}
   - {fileID: 1397801353335546, guid: 145a954193b75af4daef6ef3b7582361, type: 2}
-  dropChance: 020000000500000002000000050000000200000005000000050000000500000032000000
+  dropChance: 01000000020000000100000002000000010000000200000002000000020000000f000000
 --- !u!114 &114575008897342668
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2726,21 +2726,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a917ef1f7355c4fa8d30dbdeb6d3c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  critChance: 10
+  strength:
+    baseValue: 0
+  intelligence:
+    baseValue: 0
+  dexterity:
+    baseValue: 0
+  constitution:
+    baseValue: 0
+  damage:
+    baseValue: 1
+  armor:
+    baseValue: 1
+  manaRegen:
+    baseValue: 0
+  maxMana:
+    baseValue: 0
+  critChance:
+    baseValue: 10
+  critDamage:
+    baseValue: 0.5
+  maxHealth:
+    baseValue: 40
+  healthRegen:
+    baseValue: 0
   hasManaBar: 0
-  maxMana: 0
   currentMana: 0
   basicAttackDamageMin:
-    baseValue: 1
+    baseValue: 2
   basicAttackDamageMax:
-    baseValue: 3
+    baseValue: 4
   secondaryAttackDamageMin:
     baseValue: 0
   secondaryAttackDamageMax:
     baseValue: 0
-  armor:
-    baseValue: 1
   hitEffect: {fileID: 1348506099010952}
   hasCbtText: 1
   healthBar: {fileID: 114351171486012498}
@@ -2749,7 +2768,7 @@ MonoBehaviour:
   manaBar: {fileID: 0}
   isDead: 0
   lootTable: {fileID: 114548902376130850}
-  experience: 100
+  experience: 50
 --- !u!114 &114610167053811496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2842,7 +2861,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: e50940fcfe0d07e40a5fd80ff399bcfb, type: 3}
     m_FontSize: 101
     m_FontStyle: 0
     m_BestFit: 0

@@ -30,13 +30,22 @@ public class EquipmentManager : MonoBehaviour
     [Space, Header("UI")]
     public GameObject equippedInfoPanel;
     public Text equippedItemName;
+
+
     public Text equippedItemDamage;
     public Text equippedItemArmor;
+    public Text equippedItemCritChance;
+    public Text equippedItemCritDamage;
+    public Text equippedItemMaxHealth;
+    public Text equippedItemHealthRegen;
+    public Text equippedItemMaxMana;
+    public Text equippedItemManaRegen;
 
     public Equipment[] starterGear;
 
     Equipment[] currentEquipment;
     Inventory inventory;
+    SkillPointManager skillPointManager;
 
     public delegate void EquipmentChange(Equipment newItem, Equipment oldItem);
     public EquipmentChange OnEquipmentChanged;
@@ -45,8 +54,12 @@ public class EquipmentManager : MonoBehaviour
     {
         inventory = Inventory.instance;
 
+        skillPointManager = GetComponent<SkillPointManager>();
+
         int numberOfSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
         currentEquipment = new Equipment[numberOfSlots];
+
+        //I have to save gear into a player pref
 
         for (int i = 0; i < starterGear.Length; i++)
             Equip(starterGear[i]);
@@ -106,6 +119,7 @@ public class EquipmentManager : MonoBehaviour
                 break;
         }
 
+        skillPointManager.UpdateUI();
         OnEquipmentChanged(newItem, oldItem);
         currentEquipment[slotIndex] = newItem;
     }
@@ -178,8 +192,60 @@ public class EquipmentManager : MonoBehaviour
                 break;
         }
 
-        equippedItemDamage.text = "+" + item.damageModifier + " Damage";
-        equippedItemArmor.text = "+" + item.armorModifier + " Armor";
+        SetActiveCorrectStats(item);
+
+        equippedItemDamage.text = "+" + item.damage + " Damage";
+        equippedItemArmor.text = "+" + item.armor + " Armor";
+        equippedItemCritChance.text = "+" + item.critChance + " Crit Chance";
+        equippedItemCritDamage.text = "+" + item.critDamage + " Crit Damage";
+        equippedItemMaxHealth.text = "+" + item.maxHealth + " Max Health";
+        equippedItemHealthRegen.text = "+" + item.healthRegen + " Health Regen";
+        equippedItemMaxMana.text = "+" + item.maxMana + " Max Mana";
+        equippedItemManaRegen.text = "+" + item.manaRegen + " Mana Regen";
+    }
+
+
+    void SetActiveCorrectStats(Item item)
+    {
+        if (item.damage != 0)
+            equippedItemDamage.gameObject.SetActive(true);
+        else
+            equippedItemDamage.gameObject.SetActive(false);
+
+        if (item.armor != 0)
+            equippedItemArmor.gameObject.SetActive(true);
+        else
+            equippedItemArmor.gameObject.SetActive(false);
+
+        if (item.critChance != 0)
+            equippedItemCritChance.gameObject.SetActive(true);
+        else
+            equippedItemCritChance.gameObject.SetActive(false);
+
+        if (item.critDamage != 0)
+            equippedItemCritDamage.gameObject.SetActive(true);
+        else
+            equippedItemCritDamage.gameObject.SetActive(false);
+
+        if (item.maxHealth != 0)
+            equippedItemMaxHealth.gameObject.SetActive(true);
+        else
+            equippedItemMaxHealth.gameObject.SetActive(false);
+
+        if (item.healthRegen != 0)
+            equippedItemHealthRegen.gameObject.SetActive(true);
+        else
+            equippedItemHealthRegen.gameObject.SetActive(false);
+
+        if (item.maxMana != 0)
+            equippedItemMaxMana.gameObject.SetActive(true);
+        else
+            equippedItemMaxMana.gameObject.SetActive(false);
+
+        if (item.manaRegen != 0)
+            equippedItemManaRegen.gameObject.SetActive(true);
+        else
+            equippedItemManaRegen.gameObject.SetActive(false);
     }
 
     public void DisablePanel()

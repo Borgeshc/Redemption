@@ -7,11 +7,6 @@ public class DevMode : MonoBehaviour
     bool devmode;
 
     int pressed;
-    
-	void Start ()
-    {
-		
-	}
 	
 	void Update ()
     {
@@ -53,6 +48,13 @@ public class DevMode : MonoBehaviour
         PlayerPrefs.SetFloat("Experience", 0);
         PlayerPrefs.SetInt("Level", 1);
         PlayerPrefs.SetInt("SkillPoints", 0);
+
+        PlayerPrefs.SetInt("AttributePoints", 0);
+
+        PlayerPrefs.SetInt("StrengthSkillPoints", 0);
+        PlayerPrefs.SetInt("DexteritySkillPoints", 0);
+        PlayerPrefs.SetInt("ConstitutionSkillPoints", 0);
+        PlayerPrefs.SetInt("IntelligenceSkillPoints", 0);
 
         print("Player Prefs Reset");
     }

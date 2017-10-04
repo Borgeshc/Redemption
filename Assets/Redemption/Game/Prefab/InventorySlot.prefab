@@ -200,8 +200,11 @@ MonoBehaviour:
   removeButtonBackground: {fileID: 114906122653147846}
   itemInfoPanel: {fileID: 0}
   itemName: {fileID: 0}
-  itemDamage: {fileID: 0}
-  itemArmor: {fileID: 0}
+  itemStrength: {fileID: 0}
+  itemIntelligence: {fileID: 0}
+  itemDexterity: {fileID: 0}
+  itemWisdom: {fileID: 0}
+  itemConstitution: {fileID: 0}
 --- !u!114 &114266021277885916
 MonoBehaviour:
   m_ObjectHideFlags: 1

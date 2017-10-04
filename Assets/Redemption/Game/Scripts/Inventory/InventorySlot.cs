@@ -10,8 +10,15 @@ public class InventorySlot : MonoBehaviour
 
     public GameObject itemInfoPanel;
     public Text itemName;
+
     public Text itemDamage;
     public Text itemArmor;
+    public Text itemCritChance;
+    public Text itemCritDamage;
+    public Text itemMaxHealth;
+    public Text itemHealthRegen;
+    public Text itemMaxMana;
+    public Text itemManaRegen;
 
     EquipmentManager equipmentManager;
 
@@ -77,9 +84,60 @@ public class InventorySlot : MonoBehaviour
                 break;
         }
 
-        itemDamage.text = "+" + item.damageModifier + " Damage";
-        itemArmor.text = "+" + item.armorModifier + " Armor";
+        SetActiveCorrectStats();
+
+        itemDamage.text = "+" + item.damage + " Damage";
+        itemArmor.text = "+" + item.armor + " Armor";
+        itemCritChance.text = "+" + item.critChance + " Crit Chance";
+        itemCritDamage.text = "+" + item.critDamage + " Crit Damage";
+        itemMaxHealth.text = "+" + item.maxHealth + " Max Health";
+        itemHealthRegen.text = "+" + item.healthRegen + " Health Regen";
+        itemMaxMana.text = "+" + item.maxMana + " Max Mana";
+        itemManaRegen.text = "+" + item.manaRegen + " Mana Regen";
 
         equipmentManager.CheckCurrentItemInSlot(item);
+    }
+
+    void SetActiveCorrectStats()
+    {
+        if (item.damage != 0)
+            itemDamage.gameObject.SetActive(true);
+        else
+            itemDamage.gameObject.SetActive(false);
+
+        if (item.armor != 0)
+            itemArmor.gameObject.SetActive(true);
+        else
+            itemArmor.gameObject.SetActive(false);
+
+        if (item.critChance != 0)
+            itemCritChance.gameObject.SetActive(true);
+        else
+            itemCritChance.gameObject.SetActive(false);
+
+        if (item.critDamage != 0)
+            itemCritDamage.gameObject.SetActive(true);
+        else
+            itemCritDamage.gameObject.SetActive(false);
+
+        if (item.maxHealth != 0)
+            itemMaxHealth.gameObject.SetActive(true);
+        else
+            itemMaxHealth.gameObject.SetActive(false);
+
+        if (item.healthRegen != 0)
+            itemHealthRegen.gameObject.SetActive(true);
+        else
+            itemHealthRegen.gameObject.SetActive(false);
+
+        if (item.maxMana != 0)
+            itemMaxMana.gameObject.SetActive(true);
+        else
+            itemMaxMana.gameObject.SetActive(false);
+
+        if (item.manaRegen != 0)
+            itemManaRegen.gameObject.SetActive(true);
+        else
+            itemManaRegen.gameObject.SetActive(false);
     }
 }

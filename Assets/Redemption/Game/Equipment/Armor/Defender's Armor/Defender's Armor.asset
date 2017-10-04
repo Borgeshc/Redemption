@@ -11,12 +11,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8383fb5cd84c5674baef17727a8ac1da, type: 3}
   m_Name: Defender's Armor
   m_EditorClassIdentifier: 
+  equipSlot: 0
   name: Defender's Armor
   icon: {fileID: 21300000, guid: 080fc65c82037c147a393f7a16a99156, type: 3}
   isDefaultItem: 0
-  armorModifier: 1
-  damageModifier: 0
+  damage: 0
+  armor: 2
+  critChance: 0
+  critDamage: 0
+  maxHealth: 0
+  healthRegen: 0
+  maxMana: 0
+  manaRegen: 0
   ItemRarity: 0
-  equipSlot: 0
   itemMesh: {fileID: 1910352654984158, guid: c4969482c7dd7d74eb40c74a43424037, type: 2}
   maxManaModifier: 0

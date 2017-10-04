@@ -15,7 +15,7 @@ public class DealDamage : MonoBehaviour
     {
         if(other.tag.Equals("Attackable"))
         {
-            int damage = Random.Range(myStats.secondaryAttackDamageMin.GetValue(), myStats.secondaryAttackDamageMax.GetValue());
+            int damage = (int)Random.Range(myStats.secondaryAttackDamageMin.GetValue(), myStats.secondaryAttackDamageMax.GetValue());
             other.GetComponent<CharacterStats>().TakeDamage(damage);
         }
     }

@@ -185,7 +185,7 @@ MonoBehaviour:
   radius: 3
   interactionTransform: {fileID: 4549136810183518}
   focusGraphic: {fileID: 0}
-  item: {fileID: 11400000, guid: e2453ac9102c23f4bb4f7c73052be915, type: 2}
+  item: {fileID: 11400000, guid: c2e874b8eb21b39478542417542e69c7, type: 2}
 --- !u!135 &135482890518488430
 SphereCollider:
   m_ObjectHideFlags: 1

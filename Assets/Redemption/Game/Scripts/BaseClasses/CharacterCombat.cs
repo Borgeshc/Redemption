@@ -59,17 +59,17 @@ public class CharacterCombat : MonoBehaviour
     {
         if (PlayerController.basicAttack)
         {
-            int damage = Random.Range(myStats.basicAttackDamageMin.GetValue(), myStats.basicAttackDamageMax.GetValue());
+            int damage = (int)Random.Range(myStats.basicAttackDamageMin.GetValue(), myStats.basicAttackDamageMax.GetValue());
             enemyStats.TakeDamage(damage);
         }
         else if (PlayerController.secondaryAttack)
         {
-            int damage = Random.Range(myStats.secondaryAttackDamageMin.GetValue(), myStats.secondaryAttackDamageMax.GetValue());
+            int damage = (int)Random.Range(myStats.secondaryAttackDamageMin.GetValue(), myStats.secondaryAttackDamageMax.GetValue());
             enemyStats.TakeDamage(damage);
         }
         else
         {
-            int damage = Random.Range(myStats.basicAttackDamageMin.GetValue(), myStats.basicAttackDamageMax.GetValue());
+            int damage = (int)Random.Range(myStats.basicAttackDamageMin.GetValue(), myStats.basicAttackDamageMax.GetValue());
             enemyStats.TakeDamage(damage);
         }
     }
