@@ -41,6 +41,10 @@ public class SkillPointManager : MonoBehaviour
     int constitutionSkillPoints;
     int intelligenceSkillPoints;
 
+    private void Awake()
+    {
+        playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
+    }
     private void Start()
     {
         attributePoints = PlayerPrefs.GetInt("AttributePoints");
@@ -49,8 +53,6 @@ public class SkillPointManager : MonoBehaviour
         dexteritySkillPoints = PlayerPrefs.GetInt("DexteritySkillPoints");
         constitutionSkillPoints = PlayerPrefs.GetInt("ConstitutionSkillPoints");
         intelligenceSkillPoints = PlayerPrefs.GetInt("IntelligenceSkillPoints");
-
-        playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
 
         UpdateUI();
     }
