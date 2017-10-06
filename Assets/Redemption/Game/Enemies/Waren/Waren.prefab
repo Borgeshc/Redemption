@@ -1046,11 +1046,11 @@ GameObject:
   - component: {fileID: 114131340974876136}
   - component: {fileID: 114575008897342668}
   - component: {fileID: 114664460637499296}
-  - component: {fileID: 114666110848928424}
   - component: {fileID: 114610167053811496}
   - component: {fileID: 114485679752687992}
   - component: {fileID: 135890509975874680}
   - component: {fileID: 114548902376130850}
+  - component: {fileID: 114092859127912104}
   m_Layer: 9
   m_Name: Waren
   m_TagString: Attackable
@@ -2544,6 +2544,24 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114092859127912104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1742212447227628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 084a00ae95753804d9eb134c351c2ac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackFrequency: 1
+  basicAttackManaGain: 0
+  secondaryAttackManaLoss: 0
+  attacking: 0
+  enemyStats: {fileID: 0}
+  myStats: {fileID: 0}
+  characterAnimator: {fileID: 0}
 --- !u!114 &114131340974876136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2798,21 +2816,6 @@ MonoBehaviour:
   radius: 2
   interactionTransform: {fileID: 4268135638810210}
   focusGraphic: {fileID: 1517807304466696}
---- !u!114 &114666110848928424
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1742212447227628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 730d509bbb6de8b41afd3f4512f23caf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackFrequency: 1
-  basicAttackManaGain: 0
-  secondaryAttackManaLoss: 0
-  attacking: 0
 --- !u!114 &114793786792421926
 MonoBehaviour:
   m_ObjectHideFlags: 1

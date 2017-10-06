@@ -119,7 +119,7 @@ public class PlayerStats : CharacterStats
 
     IEnumerator PassiveRegen()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
         GainMana(manaRegen.GetValue());
         GainHealth(healthRegen.GetValue());
         regening = false;
