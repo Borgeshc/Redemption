@@ -7,12 +7,14 @@ using UnityEngine.AI;
 public class PlayerMovement : MonoBehaviour
 {
     Transform target;
+    public static bool canMove;
 
     [HideInInspector]
     public NavMeshAgent agent;
 
     private void Start()
     {
+        canMove = true;
         agent = GetComponent<NavMeshAgent>();
     }
 
@@ -27,7 +29,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void MoveToPoint(Vector3 point)
     {
-        agent.SetDestination(point);
+        if (canMove)
+            agent.SetDestination(point);
+        else
+            agent.SetDestination(transform.position);
     }
 
     public void FollowTarget(Interactable newTarget)
