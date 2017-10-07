@@ -20,6 +20,9 @@ public class PlayerStats : CharacterStats
     public float baseMaxMana;
     public float baseManaRegen;
 
+    public Stat fireBreathDamageMin;
+    public Stat fireBreathDamageMax;
+
     bool regening;
 
     private void Start()
@@ -32,7 +35,8 @@ public class PlayerStats : CharacterStats
         }
         else
         {
-            SetCurrentStats();
+            UpdateBaseStats();
+            SetBaseStats();
         }
 
         currentHealth = maxHealth.GetValue();
@@ -61,34 +65,29 @@ public class PlayerStats : CharacterStats
         secondaryAttackDamageMin.AddModifier(damage.GetValue());
         secondaryAttackDamageMax.AddModifier(damage.GetValue());
 
-        //Insert spell damage modifiers here <--
+        fireBreathDamageMin.AddModifier(damage.GetValue());
+        fireBreathDamageMax.AddModifier(damage.GetValue());
 
+        //Insert spell damage modifiers here <--
+          //The not dying bug is because armor keeps stacking.
         UpdateStatsPrefs();
     }
 
-    void SetCurrentStats()
+    void UpdateBaseStats()
     {
-        strength.AddModifier(PlayerPrefs.GetFloat(strengthString));
-        dexterity.AddModifier(PlayerPrefs.GetFloat(dexterityString));
-        constitution.AddModifier(PlayerPrefs.GetFloat(constitutionString));
-        intelligence.AddModifier(PlayerPrefs.GetFloat(intelligenceString));
+        baseStrength = PlayerPrefs.GetFloat(strengthString);
+        baseIntelligence = PlayerPrefs.GetFloat(dexterityString);
+        baseDexterity = PlayerPrefs.GetFloat(constitutionString);
+        baseConstitution = PlayerPrefs.GetFloat(intelligenceString);
 
-        damage.AddModifier(PlayerPrefs.GetFloat(damageString));
-        armor.AddModifier(PlayerPrefs.GetFloat(armorString));
-        critChance.AddModifier(PlayerPrefs.GetFloat(critChanceString));
-        critDamage.AddModifier(PlayerPrefs.GetFloat(critDamageString));
-        maxHealth.AddModifier(PlayerPrefs.GetFloat(maxHealthString));
-        healthRegen.AddModifier(PlayerPrefs.GetFloat(healthRegenString));
-        maxMana.AddModifier(PlayerPrefs.GetFloat(maxManaString));
-        manaRegen.AddModifier(PlayerPrefs.GetFloat(manaRegenString));
-
-        basicAttackDamageMin.AddModifier(PlayerPrefs.GetFloat(damageString));
-        basicAttackDamageMax.AddModifier(PlayerPrefs.GetFloat(damageString));
-
-        secondaryAttackDamageMin.AddModifier(PlayerPrefs.GetFloat(damageString));
-        secondaryAttackDamageMax.AddModifier(PlayerPrefs.GetFloat(damageString));
-
-        UpdateStatsPrefs();
+        baseDamage = PlayerPrefs.GetFloat(damageString);
+        baseArmor = PlayerPrefs.GetFloat(armorString);
+        baseCritChance = PlayerPrefs.GetFloat(critChanceString);
+        baseCritDamage = PlayerPrefs.GetFloat(critDamageString);
+        baseMaxHealth = PlayerPrefs.GetFloat(maxHealthString);
+        baseHealthRegen = PlayerPrefs.GetFloat(healthRegenString);
+        baseMaxMana = PlayerPrefs.GetFloat(maxManaString);
+        baseManaRegen = PlayerPrefs.GetFloat(manaRegenString);
     }
 
     public void UpdateStatsPrefs()
@@ -119,7 +118,7 @@ public class PlayerStats : CharacterStats
 
     IEnumerator PassiveRegen()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
         GainMana(manaRegen.GetValue());
         GainHealth(healthRegen.GetValue());
         regening = false;
@@ -147,6 +146,8 @@ public class PlayerStats : CharacterStats
                 basicAttackDamageMax.AddModifier(1);
                 secondaryAttackDamageMin.AddModifier(1);
                 secondaryAttackDamageMax.AddModifier(1);
+                fireBreathDamageMin.AddModifier(1);
+                fireBreathDamageMax.AddModifier(1);
                 break;
             case armorString:
                 armor.AddModifier(1);
@@ -192,6 +193,9 @@ public class PlayerStats : CharacterStats
 
             secondaryAttackDamageMin.AddModifier(newItem.damage);
             secondaryAttackDamageMax.AddModifier(newItem.damage);
+
+            fireBreathDamageMin.AddModifier(newItem.damage);
+            fireBreathDamageMax.AddModifier(newItem.damage);
         }
 
         if (oldItem != null)
@@ -210,9 +214,24 @@ public class PlayerStats : CharacterStats
 
             secondaryAttackDamageMin.AddModifier(oldItem.damage);
             secondaryAttackDamageMax.AddModifier(oldItem.damage);
+
+            fireBreathDamageMin.AddModifier(oldItem.damage);
+            fireBreathDamageMax.AddModifier(oldItem.damage);
         }
 
         UpdateStatsPrefs();
+    }
+
+    public int GetDamage(TriggerStatusEffect.StatusEffectToTrigger status)
+    {
+        switch(status)
+        {
+            case TriggerStatusEffect.StatusEffectToTrigger.Burn:
+                int randomDamage = (int)Random.Range(fireBreathDamageMin.GetValue(), fireBreathDamageMax.GetValue());
+                return randomDamage;
+            default:
+                return 0;
+        }
     }
 
     public float CheckAttribute(Stat stat)

@@ -7,23 +7,11 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] enemies;
     public int numberOfEnemies;
 
-    List<GameObject> floorLocations = new List<GameObject>();
+    public List<GameObject> floorLocations;
     List<GameObject> activeEnemies = new List<GameObject>();
 
-    void OnEnable()
+    void Start ()
     {
-        LevelGenerator.OnFloorCompleted += SpawnEnemies;
-    }
-
-    void OnDisable()
-    {
-        LevelGenerator.OnFloorCompleted -= SpawnEnemies;
-    }
-
-    void SpawnEnemies(List<GameObject> floors)
-    {
-        floorLocations = floors;
-
         for(int i = 0; i < numberOfEnemies; i++)
         {
             GameObject enemy = Instantiate(enemies[Random.Range(0, enemies.Length)], RandomLocation(), Quaternion.identity);

@@ -12,10 +12,13 @@ public class CharacterCombat : MonoBehaviour
     [HideInInspector]
     public  bool attacking;
 
-    CharacterStats enemyStats;
+    [HideInInspector]
+    public CharacterStats enemyStats;
 
-    CharacterStats myStats;
-    CharacterAnimator characterAnimator;
+    [HideInInspector]
+    public CharacterStats myStats;
+    [HideInInspector]
+    public CharacterAnimator characterAnimator;
 
     private void Start()
     {
@@ -55,7 +58,7 @@ public class CharacterCombat : MonoBehaviour
         attacking = false;
     }
 
-    void DoDamage()
+    public void DoDamage()
     {
         if (PlayerController.basicAttack)
         {
