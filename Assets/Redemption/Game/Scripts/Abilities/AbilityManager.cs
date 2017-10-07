@@ -15,6 +15,8 @@ public class AbilityManager : MonoBehaviour
     public Image abilityThreeIcon;
     public Image abilityFourIcon;
 
+    public Animator anim;
+
     private void Start()
     {
         UpdateAbilityIcons();
@@ -47,30 +49,34 @@ public class AbilityManager : MonoBehaviour
         {
             if(!abilityOne.onCooldown)
             {
+                anim.SetTrigger("Ability1");
                 abilityOne.ActivateAbility();
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             if (!abilityTwo.onCooldown)
             {
+                anim.SetTrigger("Ability2");
                 abilityTwo.ActivateAbility();
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             if (!abilityThree.onCooldown)
             {
+                anim.SetTrigger("Ability3");
                 abilityThree.ActivateAbility();
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             if (!abilityFour.onCooldown)
             {
+                anim.SetTrigger("Ability4");
                 abilityFour.ActivateAbility();
             }
         }

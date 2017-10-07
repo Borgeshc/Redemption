@@ -34,8 +34,11 @@ public class PlayerController : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject() || stats.isDead) //If you are currently hovering over UI
             return;
 
-        basicAttack = Input.GetKeyDown(KeyCode.Mouse0);
-        secondaryAttack = Input.GetKeyDown(KeyCode.Mouse1);
+        if(PlayerMovement.canMove)
+        {
+            basicAttack = Input.GetKeyDown(KeyCode.Mouse0);
+            secondaryAttack = Input.GetKeyDown(KeyCode.Mouse1);
+        }
 
         bool stopWalking = Input.GetKey(KeyCode.LeftShift);
 
