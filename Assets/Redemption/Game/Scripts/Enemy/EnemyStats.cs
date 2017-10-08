@@ -8,6 +8,8 @@ public class EnemyStats : CharacterStats
     public LootTable lootTable;
     public float experience;
 
+    public GameObject blood;
+
     ExperienceManager experienceManager;
     Animator anim;
 
@@ -23,6 +25,12 @@ public class EnemyStats : CharacterStats
         gameObject.layer = LayerMask.NameToLayer("Default");
         lootTable.DropLoot();
         experienceManager.AddExperience(experience);
-        Destroy(gameObject, 8);
+
+        if (SettingsManager.showBlood)
+        {
+            Instantiate(blood, transform.position, transform.rotation);
+        }
+
+        Destroy(gameObject, 5);
     }
 }

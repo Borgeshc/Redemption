@@ -73,7 +73,6 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
             {
-                print("Walk");
                 if(secondaryAttack || basicAttack)
                 Instantiate(clickToMoveEffect, hit.point, Quaternion.identity);
 

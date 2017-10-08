@@ -3114,6 +3114,7 @@ MonoBehaviour:
   isDead: 0
   lootTable: {fileID: 114548902376130850}
   experience: 50
+  blood: {fileID: 111372, guid: 87738b5a38cb9d34aaa6cbf49c05e518, type: 2}
 --- !u!114 &114610167053811496
 MonoBehaviour:
   m_ObjectHideFlags: 1

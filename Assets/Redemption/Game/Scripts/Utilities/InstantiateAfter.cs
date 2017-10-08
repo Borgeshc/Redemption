@@ -14,7 +14,6 @@ public class InstantiateAfter : MonoBehaviour
 
     public IEnumerator InstantiateObject()
     {
-        print("happens");
         yield return new WaitForSeconds(instantiateAfter);
         Instantiate(objectToInstantiate, transform.position, Quaternion.identity);
 	}
