@@ -14,7 +14,7 @@ public class PlayerFireBreath : Ability
         onCooldown = true;
 
         PlayerMovement.canMove = false;
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2f);
         PlayerMovement.canMove = true;
 
         StartCoroutine(Cooldown());

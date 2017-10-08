@@ -12,10 +12,13 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public NavMeshAgent agent;
 
+    float baseSpeed;
+
     private void Start()
     {
         canMove = true;
         agent = GetComponent<NavMeshAgent>();
+        baseSpeed = agent.speed;
     }
 
     private void Update()
@@ -30,9 +33,16 @@ public class PlayerMovement : MonoBehaviour
     public void MoveToPoint(Vector3 point)
     {
         if (canMove)
+        {
+            agent.speed = baseSpeed;
             agent.SetDestination(point);
+        }
         else
+        {
+            agent.speed = 0;
+            agent.velocity = Vector3.zero;
             agent.SetDestination(transform.position);
+        }
     }
 
     public void FollowTarget(Interactable newTarget)
