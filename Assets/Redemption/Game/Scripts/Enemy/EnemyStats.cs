@@ -19,6 +19,28 @@ public class EnemyStats : CharacterStats
         experienceManager = GameObject.Find("GameManager").GetComponent<ExperienceManager>();
     }
 
+    public void ChangeStats(AffixManager.AffixStatus rarity)
+    {
+        switch(rarity)
+        {
+            case AffixManager.AffixStatus.Rare:
+                damage.AddModifier((damage.GetValue() * 2f));
+                maxHealth.AddModifier((maxHealth.GetValue() * 2f));
+                break;
+            case AffixManager.AffixStatus.Epic:
+                damage.AddModifier((damage.GetValue() * 3f));
+                maxHealth.AddModifier((maxHealth.GetValue() * 3f));
+                break;
+            case AffixManager.AffixStatus.Legendary:
+                damage.AddModifier((damage.GetValue() * 4f));
+                maxHealth.AddModifier((maxHealth.GetValue() * 4f));
+                break;
+        }
+
+        currentHealth = maxHealth.GetValue();
+        UpdateHealthBar();
+    }
+
     public override void Die()
     {
         base.Die();

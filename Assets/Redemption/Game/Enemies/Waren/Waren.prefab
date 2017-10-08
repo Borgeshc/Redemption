@@ -1206,6 +1206,7 @@ GameObject:
   - component: {fileID: 114729607931097248}
   - component: {fileID: 114867392560911874}
   - component: {fileID: 114681154293447824}
+  - component: {fileID: 114424049457061240}
   m_Layer: 9
   m_Name: Waren
   m_TagString: Attackable
@@ -2997,6 +2998,27 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114424049457061240
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1742212447227628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f21c1167c4d4de2409dad3600ee781dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  affixes:
+  - {fileID: 114650141248364300}
+  - {fileID: 114729607931097248}
+  - {fileID: 114867392560911874}
+  - {fileID: 114681154293447824}
+  isRandom: 1
+  chanceToBeRare: 15
+  chanceToBeEpic: 10
+  chanceToBeLegendary: 5
+  healthBar: {fileID: 114351171486012498}
 --- !u!114 &114450356774036280
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3086,7 +3108,7 @@ MonoBehaviour:
   damage:
     baseValue: 1
   armor:
-    baseValue: 1
+    baseValue: 0
   manaRegen:
     baseValue: 0
   maxMana:
@@ -3096,7 +3118,7 @@ MonoBehaviour:
   critDamage:
     baseValue: 0.5
   maxHealth:
-    baseValue: 40
+    baseValue: 15
   healthRegen:
     baseValue: 0
   hasManaBar: 0

@@ -56,6 +56,8 @@ public class DevMode : MonoBehaviour
         PlayerPrefs.SetInt("ConstitutionSkillPoints", 0);
         PlayerPrefs.SetInt("IntelligenceSkillPoints", 0);
 
+        PlayerPrefs.SetInt("ShowBlood", 0);
+
         print("Player Prefs Reset");
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -57,9 +58,10 @@ public class PlayerManager : MonoBehaviour
 
     public void Respawn()
     {
-        player.transform.position = Vector3.zero;
-        anim.Respawn();
-        stats.Respawn();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //player.transform.position = Vector3.zero;
+        //anim.Respawn();
+        //stats.Respawn();
     }
 
     public IEnumerator ApplyAbilityCooldown(int ability, float cooldown)
