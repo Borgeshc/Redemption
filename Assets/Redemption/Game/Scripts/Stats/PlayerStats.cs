@@ -43,6 +43,12 @@ public class PlayerStats : CharacterStats
         currentMana = maxMana.GetValue();
     }
 
+    public override void TakeDamage(int damage)
+    {
+        if (PlayerShield.isActive) return;
+        base.TakeDamage(damage);
+    }
+
     void SetBaseStats()
     {
         strength.AddModifier(baseStrength);

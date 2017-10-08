@@ -79,7 +79,7 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         if (isDead) return;
 

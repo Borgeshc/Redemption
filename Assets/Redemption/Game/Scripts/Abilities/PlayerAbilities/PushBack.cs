@@ -8,7 +8,6 @@ public class PushBack : MonoBehaviour
     public float force;
     GameObject hitTarget;
 
-
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag.Equals("Attackable"))

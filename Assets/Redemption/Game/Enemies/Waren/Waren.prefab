@@ -1194,6 +1194,7 @@ GameObject:
   - component: {fileID: 136246870936116822}
   - component: {fileID: 54910780289703696}
   - component: {fileID: 114131340974876136}
+  - component: {fileID: 114650141248364300}
   - component: {fileID: 114575008897342668}
   - component: {fileID: 114664460637499296}
   - component: {fileID: 114610167053811496}
@@ -3130,6 +3131,24 @@ MonoBehaviour:
   numberOfBasicAttacks: 1
   numberOfSecondaryAttacks: 0
   numberOfHits: 1
+--- !u!114 &114650141248364300
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1742212447227628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b802727c7fd9648b77b8dcad745da4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  affixName: FireStorm
+  affixEffect: {fileID: 1229679472595030, guid: 252a18bf37c374b40b58b49d6e14dc48,
+    type: 2}
+  cooldown: 3
+  onCooldown: 0
+  affix: 0
+  spawnRadius: 10
 --- !u!114 &114664460637499296
 MonoBehaviour:
   m_ObjectHideFlags: 1
