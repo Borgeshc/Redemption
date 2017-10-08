@@ -36,7 +36,6 @@ public class FireStorm : Affix
         StartCoroutine(Cooldown());
     }
 
-
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.blue;

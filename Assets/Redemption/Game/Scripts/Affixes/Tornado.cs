@@ -25,6 +25,7 @@ public class Tornado : MonoBehaviour
 
         float distance = Vector3.Distance(player.transform.position, transform.position);
 
+
         if (distance <= damageRadius)
         {
             if (!dealingDamage)

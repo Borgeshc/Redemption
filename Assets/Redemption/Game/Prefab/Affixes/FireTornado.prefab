@@ -91,6 +91,7 @@ GameObject:
   - component: {fileID: 54896317464828408}
   - component: {fileID: 136090379618069644}
   - component: {fileID: 114592131706923368}
+  - component: {fileID: 114022343129402272}
   m_Layer: 0
   m_Name: FireTornado
   m_TagString: Untagged
@@ -871,6 +872,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TornadoMaterial: {fileID: 2100000, guid: d188bcfe85bfe2e49b73506b40dfd09a, type: 2}
+--- !u!114 &114022343129402272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1229679472595030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8060671f91b94d23b4e4f191a2377b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 10
 --- !u!114 &114115643655648216
 MonoBehaviour:
   m_ObjectHideFlags: 1
