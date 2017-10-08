@@ -24,6 +24,7 @@ public class EnemyController : MonoBehaviour
 
         if(distance <= lookRadius && !health.isDead)
         {
+            if(agent.isActiveAndEnabled)
             agent.SetDestination(target.position);
 
             if(distance <= agent.stoppingDistance)

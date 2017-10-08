@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     [HideInInspector]
     public NavMeshAgent agent;
-
+    
     float baseSpeed;
 
     private void Start()
@@ -23,10 +23,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if(target != null)
+        if(target != null && canMove)
         {
             agent.SetDestination(target.position);
             FaceTarget();
+        }
+        else if(!canMove)
+        {
+            agent.speed = 0;
+            agent.velocity = Vector3.zero;
+            agent.SetDestination(transform.position);
         }
     }
 
@@ -37,20 +43,17 @@ public class PlayerMovement : MonoBehaviour
             agent.speed = baseSpeed;
             agent.SetDestination(point);
         }
-        else
-        {
-            agent.speed = 0;
-            agent.velocity = Vector3.zero;
-            agent.SetDestination(transform.position);
-        }
     }
 
     public void FollowTarget(Interactable newTarget)
     {
-        agent.stoppingDistance = newTarget.radius * .8f;
-        agent.updateRotation = false;
+        if(canMove)
+        {
+            agent.stoppingDistance = newTarget.radius * .8f;
+            agent.updateRotation = false;
 
-        target = newTarget.interactionTransform;
+            target = newTarget.interactionTransform;
+        }
     }
 
     public void StopFollowingTarget()
