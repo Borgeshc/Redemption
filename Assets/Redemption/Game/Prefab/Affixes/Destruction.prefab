@@ -4185,7 +4185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageRadius: 1
-  damage: 25
+  damage: 4
   damageFrequency: 1
 --- !u!114 &114213134101328734
 MonoBehaviour:

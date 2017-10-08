@@ -1063,6 +1063,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4111369943413646}
+  - component: {fileID: 114189930465180694}
+  - component: {fileID: 114229195219130362}
   m_Layer: 0
   m_Name: Rooted
   m_TagString: Untagged
@@ -1404,7 +1406,7 @@ Transform:
   m_GameObject: {fileID: 1865439487997000}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.7, y: 0, z: 64.4}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
   - {fileID: 4153202808016904}
   - {fileID: 4857827453245896}
@@ -2904,6 +2906,17 @@ MonoBehaviour:
   GraphIntensityMultiplier: 1
   IsLoop: 0
   UseSharedMaterial: 0
+--- !u!114 &114189930465180694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1865439487997000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02c509414149c85468a89e64cab5ba2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114204911992062474
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2960,6 +2973,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UvScrollMultiplier: {x: 0.15, y: -0.3}
   TextureName: 0
+--- !u!114 &114229195219130362
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1865439487997000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 420e495a7072d51489e9884bd139e003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 6
 --- !u!114 &114414943456962550
 MonoBehaviour:
   m_ObjectHideFlags: 1
