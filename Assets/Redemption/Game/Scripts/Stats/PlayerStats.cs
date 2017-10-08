@@ -56,8 +56,8 @@ public class PlayerStats : CharacterStats
         constitution.AddModifier(baseConstitution);
         intelligence.AddModifier(baseIntelligence);
 
-        damage.AddModifier(baseDamage);
-        armor.AddModifier(baseArmor);
+        damage.AddModifier(baseDamage - 1);
+        armor.AddModifier(baseArmor - 1);
         critChance.AddModifier(baseCritChance);
         critDamage.AddModifier(baseCritDamage);
         maxHealth.AddModifier(baseMaxHealth);
@@ -183,6 +183,7 @@ public class PlayerStats : CharacterStats
 
     void OnEquipmentChanged(Equipment newItem, Equipment oldItem)
     {
+        print("OnEquipCHange");
         if(newItem != null)
         {
             damage.AddModifier(newItem.damage);
