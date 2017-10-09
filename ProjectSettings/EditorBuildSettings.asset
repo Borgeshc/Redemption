@@ -4,4 +4,22 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Redemption/Game/Scenes/CharredTempleLevel1.unity
+    guid: 6fe82913a6ab3214f98f496a4d74c011
+  - enabled: 1
+    path: Assets/Redemption/Game/Scenes/CharredTempleLevel2.unity
+    guid: 3de5c58c00693644e9bd61cafaf55a40
+  - enabled: 1
+    path: Assets/Redemption/Game/Scenes/CharredTempleLevel3.unity
+    guid: 8bb4d3ddf37d6294cadb07aa9a707b3c
+  - enabled: 1
+    path: Assets/Redemption/Game/Scenes/CharredTempleLevel4.unity
+    guid: 7968bdf3682b7d848bd55e45003ea23d
+  - enabled: 1
+    path: Assets/Redemption/Game/Scenes/CharredTempleLevel5.unity
+    guid: 725d49dbac1f1554f8b3bb76c5c3b82d
+  - enabled: 1
+    path: Assets/Redemption/Game/Scenes/CharredTempleBoss.unity
+    guid: 027bb5538dcba0648a756ad9ed72d9b5
