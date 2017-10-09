@@ -5,7 +5,7 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Zombie
+  m_Name: Crock
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Speed
@@ -89,7 +89,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 0f21ce4982d41b041af009aef9d067c3, type: 2}
+    m_Motion: {fileID: 7400000, guid: cd820684bd78c314798130c2ae960d8e, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -97,7 +97,7 @@ BlendTree:
     m_DirectBlendParameter: Blend
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 997ff46667c0aeb4d8ff36e2e7d6596b, type: 2}
+    m_Motion: {fileID: 7400000, guid: eb9d5b0957061324ea83a774d0ac18ba, type: 2}
     m_Threshold: 0.1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -315,7 +315,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8737ee7ce0cf2a6488620cad6b7d6cf5, type: 2}
+  m_Motion: {fileID: 7400000, guid: a0600f1163f5c53428299da1bb0ca6f4, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -339,7 +339,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 37cde2ab860dd3d40a68223c2f699818, type: 2}
+  m_Motion: {fileID: 7400000, guid: 603733992b14ff743acda6380f1e680f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -410,7 +410,7 @@ AnimatorState:
   m_SpeedParameterActive: 0
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 06f97e71b9b01af46a8c57439dffeb06, type: 2}
+  m_Motion: {fileID: 7400000, guid: 478ba0c1fd5da254dab603c217884792, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
