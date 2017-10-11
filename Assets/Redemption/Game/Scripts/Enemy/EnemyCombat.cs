@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyCombat : CharacterCombat
 {
+    public GameObject rangedProjectile;
+    public GameObject projectileSpawnPosition;
     StatusEffects statusEffects;
 
     private void Awake()
@@ -23,9 +25,26 @@ public class EnemyCombat : CharacterCombat
                 DoDamage();
             else
                 statusEffects.SetSlow();
-
-            myStats.GainMana(basicAttackManaGain);
+            
             StartCoroutine(GlobalCooldown());
         }
+    }
+
+    public override void RangedAttack(CharacterStats targetStats)
+    {
+        if (!attacking)
+        {
+            attacking = true;
+            enemyStats = targetStats;
+            characterAnimator.BasicAttack();
+            
+            StartCoroutine(GlobalCooldown());
+        }
+    }
+
+    public void InstantiateProjectile()
+    {
+        GameObject projectile = Instantiate(rangedProjectile, projectileSpawnPosition.transform.position, Quaternion.LookRotation(transform.forward));
+        projectile.GetComponentInChildren<RFX4_TransformMotion>().SetVariables(myStats, statusEffects);
     }
 }

@@ -61,19 +61,19 @@ public class AffixManager : MonoBehaviour
         {
             case AffixStatus.Rare:
                 healthBar.color = new Color32(0, 125, 248, 255);
-                transform.localScale += (transform.localScale * 1.2f);
+                transform.localScale += (transform.localScale * .5f);
                 enemyStats.ChangeStats(AffixStatus.Rare);
                 agent.speed = agent.speed * 2;
                 break;
             case AffixStatus.Epic:
                 healthBar.color = new Color32(162, 0, 248, 255);
-                transform.localScale += (transform.localScale * 1.2f);
+                transform.localScale += (transform.localScale * .5f);
                 enemyStats.ChangeStats(AffixStatus.Epic);
                 agent.speed = agent.speed * 2;
                 break;
             case AffixStatus.Legendary:
                 healthBar.color = new Color32(248, 118, 0, 255);
-                transform.localScale += (transform.localScale * 1.2f);
+                transform.localScale += (transform.localScale * .5f);
                 enemyStats.ChangeStats(AffixStatus.Legendary);
                 agent.speed = agent.speed * 2;
                 break;

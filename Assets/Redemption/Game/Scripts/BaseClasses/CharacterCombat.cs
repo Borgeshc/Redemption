@@ -20,6 +20,7 @@ public class CharacterCombat : MonoBehaviour
     [HideInInspector]
     public CharacterAnimator characterAnimator;
 
+
     private void Start()
     {
         myStats = GetComponent<CharacterStats>();
@@ -29,6 +30,19 @@ public class CharacterCombat : MonoBehaviour
     public virtual void BasicAttack(CharacterStats targetStats)
     {
         if(!attacking)
+        {
+            attacking = true;
+            enemyStats = targetStats;
+            characterAnimator.BasicAttack();
+            DoDamage();
+            myStats.GainMana(basicAttackManaGain);
+            StartCoroutine(GlobalCooldown());
+        }
+    }
+
+    public virtual void RangedAttack(CharacterStats targetStats)
+    {
+        if (!attacking)
         {
             attacking = true;
             enemyStats = targetStats;

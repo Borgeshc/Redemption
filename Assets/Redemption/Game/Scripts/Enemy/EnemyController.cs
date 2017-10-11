@@ -4,6 +4,7 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     public float lookRadius = 10f;
+    public bool isRanged;
 
     Transform target;
     NavMeshAgent agent;
@@ -32,7 +33,12 @@ public class EnemyController : MonoBehaviour
                 CharacterStats targetStats = target.GetComponent<CharacterStats>();
 
                 if(targetStats != null)
-                    combat.BasicAttack(targetStats);
+                {
+                    if (isRanged)
+                        combat.RangedAttack(targetStats);
+                    else
+                        combat.BasicAttack(targetStats);
+                }
 
                 FaceTarget();
             }

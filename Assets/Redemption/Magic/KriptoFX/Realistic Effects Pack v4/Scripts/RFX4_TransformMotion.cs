@@ -33,6 +33,13 @@ public class RFX4_TransformMotion : MonoBehaviour
     private bool dropFirstFrameForFixUnityBugWithParticles;
     public event EventHandler<RFX4_CollisionInfo> CollisionEnter;
 
+    CharacterStats player;
+    CharacterStats myStats;
+    StatusEffects myStatus;
+
+    int minDamage;
+    int maxDamage;
+
     void Start()
     {
         t = transform;
@@ -41,6 +48,19 @@ public class RFX4_TransformMotion : MonoBehaviour
         oldPos = t.TransformPoint(startPositionLocal);
         Initialize();
         isInitialized = true;
+
+        player = PlayerManager.instance.player.GetComponent<CharacterStats>();
+        myStats = transform.root.GetComponent<CharacterStats>();
+    }
+    
+    public void SetVariables(CharacterStats stats, StatusEffects status)
+    {
+        print("Set Vars " + stats);
+        myStats = stats;
+        minDamage = (int)myStats.basicAttackDamageMin.GetValue();
+        maxDamage = (int)myStats.basicAttackDamageMax.GetValue();
+
+        myStatus = status;
     }
 
     void OnEnable()
@@ -69,6 +89,7 @@ public class RFX4_TransformMotion : MonoBehaviour
 
     void Update()
     {
+        transform.LookAt(player.transform);
         if (!dropFirstFrameForFixUnityBugWithParticles)
         {
             UpdateWorldPosition();
@@ -93,10 +114,11 @@ public class RFX4_TransformMotion : MonoBehaviour
         }
 
         var currentDistance = (t.localPosition + frameMoveOffset - startPositionLocal).magnitude;
-
+      
         RaycastHit hit;
-        if (!isCollided && Physics.Raycast(t.position, t.forward, out hit, 10, CollidesWith))
+        if (!isCollided && Physics.BoxCast(t.position, Vector3.one,t.forward, out hit, Quaternion.identity,100, CollidesWith))
         {
+
             if (frameMoveOffset.magnitude + RayCastTolerance > hit.distance)
             {
                 isCollided = true;
@@ -120,6 +142,20 @@ public class RFX4_TransformMotion : MonoBehaviour
         oldPos = t.position;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform == player.transform)
+        {
+            if (!PlayerShield.isActive)
+            {
+                int damage = (int)UnityEngine.Random.Range(minDamage, maxDamage);
+                print(damage);
+                player.TakeDamage(damage);
+            }
+            else
+                myStatus.SetSlow();
+        }
+    }
 
 
     void OnCollisionBehaviour(RaycastHit hit)
